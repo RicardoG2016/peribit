@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123223948) do
+ActiveRecord::Schema.define(version: 20161123224846) do
 
   create_table "follows", force: :cascade do |t|
     t.string   "follower_type"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20161123223948) do
     t.datetime "created_at"
     t.index ["mentionable_id", "mentionable_type"], name: "fk_mentionables"
     t.index ["mentioner_id", "mentioner_type"], name: "fk_mentions"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text     "body"
+    t.datetime "delete_at"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "simple_hashtag_hashtaggings", force: :cascade do |t|
