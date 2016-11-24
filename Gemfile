@@ -35,6 +35,8 @@ gem "paperclip", "~> 5.0.0"
 gem "socialization"
 gem 'simple_hashtag'
 gem 'searchkick'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'normalize-rails'
 
 
 group :development, :test do
