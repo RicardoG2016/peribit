@@ -1,0 +1,22 @@
+<main>
+	<div id="user-profile">
+		<!-- If user avatars are added they will go here as well. -->
+		<%= @user.username %>
+		<%= @user.fullname %>
+	</div>
+	<div>
+	<% if @user.posts.length > 0 %>
+		<ul>
+		<% @user.posts.all.each do | post | %>
+			<li>
+				<!-- Must add username to database for it to appear here. -->
+				<b><%= @user.username %></b>
+				<p><%= post.body %></p>
+				<!-- Add total likes later. -->
+				<!-- Possibly add remaining time here? -->
+			</li>
+		<% end %>
+		</ul>
+	</div>
+	<% end %>
+</main>
