@@ -7,4 +7,5 @@ class User < ApplicationRecord
   acts_as_followable
   acts_as_liker
   acts_as_mentionable
+  has_many :posts
 end
