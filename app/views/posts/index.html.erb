@@ -9,6 +9,8 @@
   <%= link_to 'Followers', followers_path %> <%= current_user.followers(User).count %>
   <br>
   <%= link_to 'Following', following_path %> <%= current_user.followees(User).count %>
+  <br>
+  <%= link_to 'Edit Account', edit_user_registration_path %>
 </div>
   
 <div class="col-md-8 post-container">
