@@ -5,7 +5,10 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = []
+    Post.all.each do |post|
+      @posts << post if current_user.follows?(post.user)
+    end
   end
 
   # GET /posts/1
