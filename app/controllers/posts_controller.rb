@@ -25,6 +25,8 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
+    @post.delete_at = 3.hours.from_now
 
     respond_to do |format|
       if @post.save
@@ -58,6 +60,16 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def like_post
+    @post = Post.find(params[:id])
+    if !current_user.likes?(@post)
+      current_user.like!(@post)
+      @post.delete_at += 15.minutes
+      @post.save
+      redirect_to @post
     end
   end
 
