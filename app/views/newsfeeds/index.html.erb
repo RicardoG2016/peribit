@@ -1,0 +1,19 @@
+<h1>Newsfeed</h1>
+<ul>
+
+<h2> <%= current_user.fullname %> </h2>
+<h3> <%= current_user.username %> </h3>
+
+
+<%= link_to 'New Post', new_post_path %>
+<br>
+<%= link_to 'Followers', followers_path %>
+<br>
+<%= link_to 'Following', followers_path %>
+<br>
+<br>
+<br>
+<% @post.each do |post| %>
+  <li><%= link_to post.body, post %></li>
+<% end -%>
+</ul>

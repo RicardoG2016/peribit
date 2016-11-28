@@ -24,6 +24,7 @@
 			      	  <li class="active"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %><span class="sr-only">(current)</span></li>
 			      	<% else %>
 			      		<li class="active"><a href="/users/sign_in">Login<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="/users/sign_up">Signup<span class="sr-only">(current)</span></a></li>
 			      	<% end %>
 			      </ul>
 			      
