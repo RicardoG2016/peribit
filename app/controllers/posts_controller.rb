@@ -7,7 +7,9 @@ class PostsController < ApplicationController
   def index
     @posts = []
     Post.all.each do |post|
-      @posts << post if current_user.follows?(post.user)
+      if current_user.follows?(post.user) || post.user == current_user
+        @posts << post 
+      end
     end
   end
 
@@ -74,7 +76,7 @@ class PostsController < ApplicationController
       current_user.like!(@post)
       @post.delete_at += 15.minutes
       @post.save
-      redirect_to @post
+      redirect_to :back
     end
   end
 

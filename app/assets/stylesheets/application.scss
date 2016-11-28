@@ -16,3 +16,63 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+body {
+	background: #f5f8fa;
+}
+
+.post {
+	background: white;
+	margin-top: 0;
+	margin-bottom: 0;
+	border-bottom: 1px solid black;
+	border-radius: 0 !important;
+}
+
+.post:last-child {
+	border: 0;
+}
+
+a.post-link {
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+
+.post > h3 {
+	font-size: 35px;
+}
+
+.post > p {
+	font-size: 30px;
+}
+
+.reply {
+	border-radius: 0 !important;
+}
+
+.reply .link {
+	font-size: 18px;
+}
+
+.reply > h4 {
+	font-size: 25px;
+}
+
+.reply > p {
+	font-size: 20px;
+}
+
+.link {
+	font-size: 20px;
+}
+
+.user-container, .post-container {
+	margin-top: 100px;
+}
+
+
+
+
+

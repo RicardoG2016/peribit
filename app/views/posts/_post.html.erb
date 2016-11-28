@@ -1,0 +1,20 @@
+<h3><%= post.user.username %></h3>
+
+
+<p>
+  <%= linkify_hashtags(post.body) %>
+</p>
+
+<p>
+  <strong>Time Left:</strong>
+  <%= distance_of_time_in_words(Time.now, post.delete_at) %>
+</p>
+
+
+
+<%= link_to 'Like', "/posts/#{post.id}/like", method: :post %> <%= post.likers(User).count %> |
+<%= link_to 'Reply', "/posts/#{post.id}/reply" %> |
+<% if post.user == current_user %> 
+    <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <% end %>
+<%= link_to 'Back', posts_path %>

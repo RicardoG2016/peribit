@@ -1,30 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @post.user.fullname %></h2>
-<h3><%= @post.user.username %></h3>
+<div class="jumbotron post" style="border: none;">
+    <a href="/posts/<%= @post.id %>" class="post-link"></a>
+    <h3><%= link_to @post.user.username, "/users/#{@post.user.id}" %></h3>
 
 
-<p>
-  <%= linkify_hashtags(@post.body) %>
-</p>
+    <p>
+      <%= link_to linkify_hashtags(@post.body), post_path(@post) %>
+    </p>
 
-<p>
-  <strong>Time Left:</strong>
-  <%= distance_of_time_in_words(Time.now, @post.delete_at) %>
-</p>
-
-
-
-<%= link_to 'Like', like_path, method: :post %> <%= @post.likers(User).count %> |
-<%= link_to 'Reply', "/posts/#{@post.id}/reply" %> |
-<%= link_to 'Back', posts_path %>
+    <p>
+      <strong>Time Left:</strong>
+      <%= distance_of_time_in_words(Time.now, @post.delete_at) %>
+    </p>
 
 
-<% if @post.replies.length > 0 %>
-	<ul>
+
+    <span class="links">
+	    <%= link_to "Like #{@post.likers(User).count}", "/posts/#{@post.id}/like", class: "link", method: :post  %> |
+	    <%= link_to 'Reply', "/posts/#{@post.id}/reply", class: "link" %>
+	    <% if @post.user == current_user %> 
+	      | <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "link" %>
+	    <% end %>
+    </span>
+</div>
+
+<div class="reply-container">
+	<% if @post.replies.length > 0 %>
 	<% @post.replies.each do |reply| %>
-		<li><%= reply.body %>
-		<%= reply.user.username %></li>
+		<div class="jumbotron reply">
+			<h4><%= link_to reply.user.username, "/users/#{reply.user.id}" %></h4>
+			<p><%= linkify_hashtags(reply.body) %></p>
+        <% if reply.user == current_user %> 
+        	<%= link_to 'Edit', edit_reply_path(reply), class: "link" %> |
+          <%= link_to 'Delete', reply, method: :delete, data: { confirm: 'Are you sure?' }, class: "link" %>
+        <% end %>
+		</div>
 	<% end %>
-	</ul>
 <% end %>
+</div>
+
