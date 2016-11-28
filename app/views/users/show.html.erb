@@ -1,1 +1,10 @@
 <%=  @user.fullname %>
+
+<button type="submit" class="btn btn-default">
+
+  <% if (@following == nil) || (@following.include?(@user) == false) %>
+    <a href="/newsfeeds"> <%= Follow %> <% current_user.follow!(@user) %> </a>
+  <% else %>
+    <%= Following %>
+  <% end %>
+</button>

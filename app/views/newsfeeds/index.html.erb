@@ -1,9 +1,8 @@
 <h1>Newsfeed</h1>
 <ul>
 
-<h2> <%= current_user.fullname %> </h2>
+<h2> Hi <%= current_user.fullname %> </h2>
 <h3> <%= current_user.username %> </h3>
-
 
 <%= link_to 'New Post', new_post_path %>
 <br>
@@ -15,5 +14,9 @@
 <br>
 <% @post.each do |post| %>
   <li><%= link_to post.body, post %></li>
+  <li>Posted: <%= post.delete_at %></li>
+  <li>By: <%= link_to post.user.username, user_path(post.user.id) %></li>
+  <br>
+
 <% end -%>
 </ul>
