@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get "newsfeeds",           to: "newsfeeds#index",    as: :newsfeeds
   get "followers",           to: "followers#index",    as: :followers
+  get "following",           to: "following#index",    as: :following
   get "users/:id",           to: "users#show",    as: :user
 	
   root "posts#index"
