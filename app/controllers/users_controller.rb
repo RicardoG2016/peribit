@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+  
+def search
+  if params[:search].present?
+    @users = User.search(params[:search])
+  else
+    alert:"User not found"
+  end 
+end
+
   def show
   	redirect_to('/users/sign_in') and return if !current_user
     @user = User.find(params[:id])
