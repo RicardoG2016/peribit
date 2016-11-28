@@ -21,9 +21,12 @@
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav">
 							<% if user_signed_in? %>
-			      	  <li class="active"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %><span class="sr-only">(current)</span></li>
+			      	  <li class="active"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %><span class="sr-only">(current)</span></li>
+			      	  <!-- Replace email with username below once username has been configured. -->
+			      	  <li class="active"><a href="/users/<%= current_user.id %>"><%= current_user.email %></a></li>
 			      	<% else %>
 			      		<li class="active"><a href="/users/sign_in">Login<span class="sr-only">(current)</span></a></li>
+			      		<li class="active"><a href="/users/sign_up">Sign Up</a><span class="sr-only">(current)</span></li>
 			      	<% end %>
 			      </ul>
 			      

@@ -37,7 +37,7 @@ gem 'simple_hashtag'
 gem 'searchkick'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'normalize-rails'
-gem 'whenever', :require => false
+gem 'pry'
 
 
 group :development, :test do
