@@ -1,0 +1,10 @@
+<h2>Following</h2>
+
+<% if @following.count > 0 %>
+    <% @following.each do |f| %>
+    <li> 
+    <a href="/users/<%= f.id %>"> <%= f.username %></a></li>
+    <% end -%>
+<% else %>
+    <p>Sorry you are not following anyone at this time.</p>
+<% end %>
