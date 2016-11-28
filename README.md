@@ -8,3 +8,8 @@ _look at these first because they require installing and some small device insta
 - Searchkick: https://github.com/ankane/searchkick
 - Socialization: https://github.com/cmer/socialization
 - Simple_Hashtag: https://github.com/ralovely/simple_hashtag
+
+## ToDo
+
+Stuff we have to do:
+- Fix hashtag logic to find hashtags after ...

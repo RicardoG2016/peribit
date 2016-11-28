@@ -8,4 +8,5 @@ class User < ApplicationRecord
   acts_as_liker
   acts_as_mentionable
   has_many :posts
+  has_many :replies
 end

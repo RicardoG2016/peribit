@@ -16,5 +16,15 @@
 
 
 <%= link_to 'Like', like_path, method: :post %> <%= @post.likers(User).count %> |
-<%= link_to 'Reply' %> |
+<%= link_to 'Reply', "/posts/#{@post.id}/reply" %> |
 <%= link_to 'Back', posts_path %>
+
+
+<% if @post.replies.length > 0 %>
+	<ul>
+	<% @post.replies.each do |reply| %>
+		<li><%= reply.body %>
+		<%= reply.user.username %></li>
+	<% end %>
+	</ul>
+<% end %>
