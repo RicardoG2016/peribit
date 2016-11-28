@@ -1,34 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1>Newsfeed</h1>
+<ul>
 
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th>Delete at</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h2> Hi <%= current_user.fullname %> </h2>
+<h3> <%= current_user.username %> </h3>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= linkify_hashtags(post.body) %></td>
-        <td><%= post.delete_at %></td>
-        <td><%= post.user.username %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Like', like_path(post), method: :post %> <%= post.likers(User).count %></td>
-        <td><%= link_to 'Reply' %></td>
-        <% if post.user == current_user %> 
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= link_to 'Followers', followers_path %>
 <br>
-
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'Following', following_path %>
+<br>
+<br>
+<br>
+<% @posts.each do |post| %>
+  <li><%= link_to post.body, post %></li>
+  <li>Posted: <%= post.delete_at %></li>
+  <li>By: <%= link_to post.user.username, "users/#{post.user.id}" %></li>
+  <li><%= link_to 'Like', like_path(post), method: :post %> <%= post.likers(User).count %></li>
+  <li><%= link_to 'Reply' %></li>
+  <% if post.user == current_user %> 
+    <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <% end %>
+  <br>
+<% end -%>
+</ul>

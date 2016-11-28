@@ -1,0 +1,10 @@
+<h2>Followers</h2>
+
+<% if @followers.count > 0 %>
+    <% @followers.each do |follower| %>
+    <li> 
+    <a href="/users/<%= follower.id %>"> <%= follower.username %></a></li>
+    <% end -%>
+<% else %>
+    <p>Sorry you do not have any followers at this time.</p>
+<% end %>

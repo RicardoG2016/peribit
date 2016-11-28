@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /posts
   # GET /posts.json
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @post.user = current_user
   end
 
   # GET /posts/1/edit
