@@ -12,30 +12,36 @@
 </div>
   
 <div class="col-md-8 post-container">
- <% @posts.each do |post| %>
+<% if @posts.length > 0 %>
+   <% @posts.each do |post| %>
+    <div class="jumbotron post">
+        <a href="/posts/<%= post.id %>" class="post-link"></a>
+        <h3><%= link_to post.user.username, "/users/#{post.user.id}" %></h3>
+
+
+        <p>
+          <%= link_to linkify_hashtags(post.body), post_path(post) %>
+        </p>
+
+        <p>
+          <strong>Time Left:</strong>
+          <%= distance_of_time_in_words(Time.now, post.delete_at) %>
+        </p>
+
+        <%= link_to 'Like', "/posts/#{post.id}/like", method: :post %> <%= post.likers(User).count %> |
+        <%= link_to 'Reply', "/posts/#{post.id}/reply" %>
+        <% if post.user == current_user %> 
+          | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+    </div>
+  <% end %> 
+<% else %>
   <div class="jumbotron post">
-      <a href="/posts/<%= post.id %>" class="post-link"></a>
-      <h3><%= link_to post.user.username, "/users/#{post.user.id}" %></h3>
-
-
-      <p>
-        <%= link_to linkify_hashtags(post.body), post_path(post) %>
-      </p>
-
-      <p>
-        <strong>Time Left:</strong>
-        <%= distance_of_time_in_words(Time.now, post.delete_at) %>
-      </p>
-
-
-
-      <%= link_to 'Like', "/posts/#{post.id}/like", method: :post %> <%= post.likers(User).count %> |
-      <%= link_to 'Reply', "/posts/#{post.id}/reply" %>
-      <% if post.user == current_user %> 
-        | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
+    <h3>
+      Sorry, there are no posts.
+    </h3>
   </div>
-<% end %> 
+<% end %>
 </div>
 
 
