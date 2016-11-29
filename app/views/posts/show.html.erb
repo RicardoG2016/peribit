@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <div class="jumbotron post" style="border: none;">
-    <a href="/posts/<%= @post.id %>" class="post-link"></a>
+    <div class="pull-left image">
+      <%= image_tag @post.user.avatar.url(:thumb) %>
+    </div>
     <h3><%= link_to @post.user.username, "/users/#{@post.user.id}" %></h3>
 
 
