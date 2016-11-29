@@ -1,17 +1,23 @@
 <div class="jumbotron fol-style">
-  <h2>Search Results</h2>
+  <h2 style="margin-bottom: 25px;">Search Results</h2>
 
   <% if @users != nil %>
       <% @users.each do |user| %>
         <div class="follower row">
-          <h3><%= link_to user.username, "/users/#{user.id}" %></h3>
+          <div class="avatar">
+            <%= image_tag user.avatar.url(:thumb), class: "img-circle", style: "margin-right: 30px" %>
+          </div>
+          <div class="follow-info">
+            <h3>
+              <%= link_to user.fullname, "/users/#{user.id}" %>
+            </h3>
+            <h4><%= user.username %></h4>
+          </div>
         </div>
       <% end %>
   <% elsif @hashtagged != nil  %>
       <% @hashtagged.each do |post| %>
-        <div class="follower row">
-          <h3><%= link_to post.body, "/posts/#{post.id}" %></h3>
-        </div>
+        <%= render "posts/post", post: post %>
       <% end %>
   <% end %>
 
