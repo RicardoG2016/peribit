@@ -10,7 +10,7 @@
   <% elsif @hashtagged != nil  %>
       <% @hashtagged.each do |post| %>
         <div class="follower row">
-          <h3><%= link_to post.body %></h3>
+          <h3><%= link_to post.body, "/posts/#{post.id}" %></h3>
         </div>
       <% end %>
   <% else %>
