@@ -42,12 +42,12 @@ a.post-link {
 	display: block;
 }
 
-.post > h3 {
-	font-size: 35px;
+.post > .row > .post-info > h3 {
+	font-size: 22px;
 }
 
-.post > p {
-	font-size: 30px;
+.post > .row > .post-info >  p {
+	font-size: 15px;
 }
 
 .reply {
@@ -219,7 +219,23 @@ a.post-link {
 	padding-top: 4px;
 }
 
-@media screen and (max-width: 990px) {
+.avatar {
+	padding-right: 5px;
+	margin-left: 5px;
+	float: left
+}
+
+.avatar > img {
+	margin-top: 32%;
+}
+
+.post-info {
+	padding-left: 20px;
+	float: left;
+	width: 83%;
+}
+
+@media screen and (max-width: 991px) {
 	div.post-container {
 		margin-top: 20px;
 	}
