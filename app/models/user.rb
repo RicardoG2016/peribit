@@ -10,7 +10,8 @@ class User < ApplicationRecord
   acts_as_mentionable
   has_many :posts
   has_many :replies
-
+  validates :username, presence: true
+  validates :fullname, presence: true
   private
   def capitalize_name
     new_name = self.fullname.split
