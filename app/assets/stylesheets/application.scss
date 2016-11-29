@@ -157,6 +157,11 @@ a.post-link {
 	width: 200px;
 }
 
+.user-auth > form > .field > input[type="file"] {
+	width: 200px;
+	margin: 0 auto;
+}
+
 .user-auth > form > .field > label {
 	font-size: 16px;
 	margin-top: 22px;
