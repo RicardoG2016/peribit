@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_save :capitalize_name
+  searchkick
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_attached_file :avatar, styles: { large: "300x300#", medium: "150x150#", thumb: "75x75#" }, default_url: "/images/:style/missing.png"

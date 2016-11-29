@@ -5,6 +5,11 @@ Rails.application.routes.draw do
 	  registrations: 'users/registrations'
 	}
 	resources :posts
+  
+  
+  get 'search', to: "users#search"
+  get 'search', to: "hashtags#search"
+
 	get "users/:id",					 to: "users#show"
 	post "users/:id/follow",	 to: "users#follow"
 	post "users/:id/unfollow", to: "users#unfollow"
