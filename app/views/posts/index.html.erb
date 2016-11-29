@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="jumbotron col-md-4 user-container">
-  <%= image_tag current_user.avatar.url(:medium) %>
+  <%= image_tag current_user.avatar.url(:medium), class: "img-rounded" %>
   <h2> <%= current_user.fullname %> </h2>
   <h4> <%= current_user.username %> </h4>
   <%= link_to "Active Posts", "/users/#{current_user.id}" %> <%= current_user.posts.count %> 
@@ -9,8 +9,6 @@
   <%= link_to 'Followers', followers_path %> <%= current_user.followers(User).count %>
   <br>
   <%= link_to 'Following', following_path %> <%= current_user.followees(User).count %>
-  <br>
-  <%= link_to 'Edit Account', edit_user_registration_path %>
 </div>
   
 <div class="col-md-8 post-container">
@@ -18,7 +16,7 @@
    <% @posts.each do |post| %>
     <div class="jumbotron post">
       <a href="/posts/<%= post.id %>" class="post-link"></a>
-      <%= image_tag post.user.avatar.url(:thumb) %>
+      <%= image_tag post.user.avatar.url(:thumb), class: "img-circle" %>
       <h3><%= link_to post.user.username, "/users/#{post.user.id}" %></h3>
 
       <p>
