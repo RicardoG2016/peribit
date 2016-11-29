@@ -1,10 +1,17 @@
 class UsersController < ApplicationController
-  
+
 def search
   if params[:search].present?
-    @users = User.search(params[:search])
+    if params[:search][0].to_s == "#"
+      @users = nil
+      params[:search].delete! "#"
+      @hashtag = SimpleHashtag::Hashtag.find_by_name(params[:search])
+      @hashtagged = @hashtag.hashtaggables if @hashtag
+    else
+      @users = User.search(params[:search])
+    end
   else
-    alert:"User not found"
+    alert:"No result"
   end 
 end
 

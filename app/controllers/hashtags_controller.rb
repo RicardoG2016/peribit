@@ -1,5 +1,14 @@
 class HashtagsController < ApplicationController
 
+  def search
+    
+    if params[:search].present?
+      @hashtags = SimpleHashtag::Hashtag.search(params[:search])
+    else
+      alert:"Search not found"
+    end 
+  end
+
   def index
     @hashtags = SimpleHashtag::Hashtag.all
   end
