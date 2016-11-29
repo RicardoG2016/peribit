@@ -13,8 +13,7 @@ Rails.application.routes.draw do
 	post "posts/:id/like", 		 to: "posts#like_post",    as: :like
 	get "posts/:id/reply",     to: "replies#new"
 	post "posts/:id/reply",     to: "replies#create"
-
-  get "newsfeeds",           to: "newsfeeds#index",    as: :newsfeeds
+	delete "replies/:id",		   to: "replies#destroy"
   get "followers",           to: "followers#index",    as: :followers
   get "following",           to: "following#index",    as: :following
 	

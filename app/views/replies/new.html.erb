@@ -4,7 +4,7 @@
 	<%= form_tag("/posts/#{@post.id}/reply", method: "post") do %>
 
 	  <div class="field reply-field">
-	  <textarea name="reply[body]"></textarea>
+	  <textarea name="reply[body]" placeholder=" Max of 140 characters"></textarea>
 	  </div>
 
 	  <div class="actions reply-submit">
