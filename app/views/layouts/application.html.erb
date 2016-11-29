@@ -39,7 +39,7 @@
         
         <%= form_tag search_path, method: :get, class: "navbar-form navbar-right nav-style", role: "search" do %>
         <p>
-          <%= text_field_tag :search, params[:search], class: "btn btn-default" %>
+          <%= text_field_tag :search, params[:search], class: "btn btn-default search-box" %>
           <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
         </p>
         <% end %>  

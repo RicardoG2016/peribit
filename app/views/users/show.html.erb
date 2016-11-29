@@ -12,11 +12,11 @@
 		  <% if current_user != @user %>
 				<% if current_user.follows?(@user) %>
 					<%= form_tag("/users/#{@user.id}/unfollow", method: "post") do %>
-						<%= submit_tag("Unfollow") %>
+						<%= submit_tag("Unfollow", class: 'btn') %>
 					<% end %> 
 				<% else %>
 					<%= form_tag("/users/#{@user.id}/follow", method: "post") do %>
-						<%= submit_tag("Follow") %>
+						<%= submit_tag("Follow", class: 'btn') %>
 					<% end %> 
 				<% end %>
 			<% else %>

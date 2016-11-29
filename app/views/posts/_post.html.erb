@@ -1,28 +1,24 @@
 <div class="container-fluid jumbotron post">
-<div class="row">
-	<div class="avatar pull-left">
-		<%= image_tag post.user.avatar.url(:thumb), class: "img-circle" %>
-	</div>
-
-	<div class="post-info col-md-8">
-		<h3><%= link_to post.user.username, "/users/#{post.user.id}" %></h3>
-		<p>
-	    <%= link_to linkify_hashtags(post.body), post_path(post) %>
-	  </p>
-	  <p>
-	    <strong>Time Left:</strong>
-	    <%= distance_of_time_in_words(Time.now, post.delete_at) %>
+	<div class="row">
+		<div class="avatar pull-left">
+			<%= image_tag post.user.avatar.url(:thumb), class: "img-circle" %>
+		</div>
+		<div class="post-info col-md-8">
+			<h3><%= link_to post.user.username, "/users/#{post.user.id}" %></h3>
+			<p>
+		    <%= link_to linkify_hashtags(post.body), post_path(post) %>
 		  </p>
-		<div class="post-links">
-			<%= link_to 'Like', "/posts/#{post.id}/like", method: :post %> <%= post.likers(User).count %> |
-		  <%= link_to 'Reply', "/posts/#{post.id}/reply" %>
-		  <% if post.user == current_user %> 
-		    | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-		  <% end %>
+		  <p>
+		    <strong>Time Left:</strong>
+		    <%= distance_of_time_in_words(Time.now, post.delete_at) %>
+			  </p>
+			<div class="post-links">
+				<%= link_to 'Like', "/posts/#{post.id}/like", method: :post %> <%= post.likers(User).count %> |
+			  <%= link_to 'Reply', "/posts/#{post.id}/reply" %>
+			  <% if post.user == current_user %> 
+			    | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+			  <% end %>
+			</div>
 		</div>
 	</div>
-</div>
-	
-	
-	  
 </div>

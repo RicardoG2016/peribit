@@ -32,10 +32,6 @@ body {
 	border-radius: 0 !important;
 }
 
-.post:last-child {
-	border: 0;
-}
-
 a.post-link {
 	height: 100%;
 	width: 100%;
@@ -52,18 +48,27 @@ a.post-link {
 
 .reply {
 	border-radius: 0 !important;
+	margin-bottom: 0;
+	border-bottom: 0.5px solid #c6c6c6;
+	background: #f7f6f4;
 }
 
-.reply .link {
-	font-size: 18px;
-}
-
-.reply > h4 {
-	font-size: 25px;
-}
-
-.reply > p {
+.reply-username > a {
 	font-size: 20px;
+}
+
+.reply-avatar {
+	padding-top: 15px;
+}
+
+.reply-links > a {
+	font-size: 14px;
+}
+
+p.reply-par {
+	margin-bottom: 5px;
+	font-size: 13px;
+	word-wrap: break-word;
 }
 
 .link {
@@ -139,11 +144,6 @@ a.post-link {
 	color: #f9f9f9;
 }
 
-// .reply-container > .reply {
-// 	margin-bottom: 0;
-// 	border-bottom: 0.5px solid #a8a8a8;
-// }
-
 .user-auth {
 	text-align: center;
 	margin-top: 100px;
@@ -184,11 +184,12 @@ a.post-link {
 
 .navbar {
 	background: #db3236;
+	height: 60px;
 }
 
 .navbar-default .navbar-nav > li > a {
 	color: white;
-	height: 64px;
+	height: 59px;
 	letter-spacing: 1px;
 	font-size: 15px;
 	padding-top: 20px;
@@ -196,8 +197,9 @@ a.post-link {
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-	background: #AC3931;
-	color: #d8d8d8;
+	text-shadow: 1px 2px #1e1e1e;
+	color: #FFF;
+	background: #BA2124;
 	text-shadow: 1px 1px #333;
 }
 
@@ -210,7 +212,8 @@ a.post-link {
 }
 
 .navbar-default .navbar-brand:hover {
-	color: #d8d8d8;
+	text-shadow: 1px 1px #1e1e1e;
+	color: #FFF;
 	text-shadow: 1px 1px #333;
 }
 
@@ -235,9 +238,59 @@ a.post-link {
 	width: 83%;
 }
 
+.btn {
+	background: #C9282A;
+	color: #FFF;
+}
+
+.btn:hover {
+	text-shadow: 1px 2px #1e1e1e;
+	color: #FFF;
+	background: #BA2527;
+	text-shadow: 1px 1px #333;
+}
+
+.btn:focus {
+	outline: none;
+}
+
+.search-box {
+	background: #f4f4f4;
+	color: #000;
+	text-shadow: none;
+}
+
+.follow-info {
+	padding-top: 20px;
+}
+
+.search-box:hover {
+	background: #f4f4f4;
+	color: #000;
+	text-shadow: none;
+}
+
+div#user-profile {
+	float: left;
+}
+
+div#user-profile-feed {
+	float: left;
+}
+
+.jumbotron.reply {
+	padding-bottom: 90px;
+}
+
 @media screen and (max-width: 991px) {
 	div.post-container {
 		margin-top: 20px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	div.avatar {
+		margin-left: 25px;
 	}
 }
 
