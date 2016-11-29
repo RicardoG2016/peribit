@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   
   
   get 'search', to: "users#search"
-  get 'search', to: "hashtags#search"
 
 	get "users/:id",					 to: "users#show"
 	post "users/:id/follow",	 to: "users#follow"

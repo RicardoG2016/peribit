@@ -66,7 +66,7 @@ class RepliesController < ApplicationController
     # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    # def reply_params
-    #   params.require(:reply).permit(:body)
-    # end
+    def reply_params
+      params.require(:reply).permit(:body)
+    end
 end
