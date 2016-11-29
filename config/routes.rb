@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :replies
+  delete "users/:id/account", 	      to: "users#delete"
 	devise_for :users, controllers: {
 	  registrations: 'users/registrations'
 	}

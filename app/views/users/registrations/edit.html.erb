@@ -8,10 +8,11 @@
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true %>
     </div>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
+    
+    <div class="field">
+      <%= f.label :username %> <br>
+      <%= f.text_field :username %>
+    </div>
 
     <div class="field">
       <%= f.label :password %> <br>
@@ -43,5 +44,5 @@
   <br>
   <hr>
 
-  <p><%= button_to "Cancel Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn delete-acct-btn" %></p>  
+  <p><%= button_to "Cancel Account", "/users/#{@user.id}/account", data: { confirm: "Are you sure?" }, method: :delete, class: "btn delete-acct-btn" %></p>  
 </div>
