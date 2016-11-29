@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   resources :replies
+  delete "users/:id/account", 	      to: "users#delete"
 	devise_for :users, controllers: {
 	  registrations: 'users/registrations'
 	}
 	resources :posts
+  
+  
+  get 'search', to: "users#search"
+  get 'search', to: "hashtags#search"
+
 	get "users/:id",					 to: "users#show"
 	post "users/:id/follow",	 to: "users#follow"
 	post "users/:id/unfollow", to: "users#unfollow"
@@ -12,8 +18,7 @@ Rails.application.routes.draw do
 	post "posts/:id/like", 		 to: "posts#like_post",    as: :like
 	get "posts/:id/reply",     to: "replies#new"
 	post "posts/:id/reply",     to: "replies#create"
-
-  get "newsfeeds",           to: "newsfeeds#index",    as: :newsfeeds
+	delete "replies/:id",		   to: "replies#destroy"
   get "followers",           to: "followers#index",    as: :followers
   get "following",           to: "following#index",    as: :following
 	

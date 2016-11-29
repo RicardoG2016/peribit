@@ -1,4 +1,20 @@
 class UsersController < ApplicationController
+
+def search
+  if params[:search].present?
+    if params[:search][0].to_s == "#"
+      @users = nil
+      params[:search].delete! "#"
+      @hashtag = SimpleHashtag::Hashtag.find_by_name(params[:search])
+      @hashtagged = @hashtag.hashtaggables if @hashtag
+    else
+      @users = User.search(params[:search])
+    end
+  else
+    alert:"No result"
+  end 
+end
+
   def show
   	redirect_to('/users/sign_in') and return if !current_user
     @user = User.find(params[:id])
@@ -7,6 +23,12 @@ class UsersController < ApplicationController
   def destroy
   	session.clear
   	redirect_to('/')
+  end
+
+  def delete
+    user = User.find(params[:id])
+    user.destroy
+    redirect_to('/')
   end
 
   def follow

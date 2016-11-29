@@ -1,0 +1,14 @@
+<div class="jumbotron fol-style">
+  <h2>Search Results</h2>
+
+  <% if @hashtags %>
+      <% @hashtags.each do |hashtag| %>
+        <div class="follower row">
+          <h3><%= link_to hashtag.name, hashtag_path(hashtag.name) %></h3>
+        </div>
+      <% end -%>
+  <% else %>
+      <p>No results.</p>
+  <% end %>
+
+</div>

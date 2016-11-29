@@ -12,4 +12,3 @@ _look at these first because they require installing and some small device insta
 ## ToDo
 
 Stuff we have to do:
-- Fix hashtag logic to find hashtags after ...

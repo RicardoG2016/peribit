@@ -5,7 +5,9 @@
 	<% if @following.count > 0 %>
 	    <% @following.each do |f| %>
 		    <div class="follower row">
-		    	<h3><%= link_to f.username, "/users/#{f.id}" %></h3>
+		        <%= image_tag f.avatar.url(:thumb) %>
+		    	<h3><%= link_to f.fullname, "/users/#{f.id}" %></h3>
+		    	<h4><%= f.username %></h4>
 		    </div>
 	    <% end -%>
 	<% else %>

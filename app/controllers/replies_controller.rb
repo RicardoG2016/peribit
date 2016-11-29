@@ -1,5 +1,5 @@
 class RepliesController < ApplicationController
-  before_action :set_reply, only: [:show, :edit, :update, :destroy]
+  # before_action :set_reply, only: [:show, :edit, :update, :destroy]
 
   # # GET /replies
   # # GET /replies.json
@@ -54,19 +54,19 @@ class RepliesController < ApplicationController
   # DELETE /replies/1
   # DELETE /replies/1.json
   def destroy
-    @post = Post.find(params[:id])
-    @reply.destroy
-    redirect_to post_url(@post)
+    reply = Reply.find(params[:id])
+    reply.destroy
+    redirect_to :back
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_reply
-      @reply = Reply.find(params[:id])
-    end
+    # def set_reply
+    #   @reply = Reply.find(params[:id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def reply_params
-      params.require(:reply).permit(:body)
-    end
+    # def reply_params
+    #   params.require(:reply).permit(:body)
+    # end
 end
