@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   acts_as_mentioner
   has_many :replies
 
-  scope :trending, -> { order("delete_at DESC").limit(10) }
+  scope :trending, -> { order("delete_at ASC").limit(10) }
 
   validates :body, presence: true, length: { minimum: 1, maximum: 140 }
 end
