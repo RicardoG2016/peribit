@@ -25,6 +25,7 @@ body {
 }
 
 .post {
+	min-width: 500px;
 	background: white;
 	margin-top: 0;
 	margin-bottom: 0;
@@ -271,7 +272,7 @@ p.reply-par {
 }
 
 #index-profile {
-	
+
 }
 
 div#user-profile {
@@ -289,6 +290,10 @@ div#user-profile-feed {
 @media screen and (max-width: 991px) {
 	div.post-container {
 		margin-top: 20px;
+	}
+
+	#index-profile {
+		min-width: 530px;
 	}
 }
 
