@@ -10,8 +10,6 @@ def search
     else
       @users = User.search(params[:search])
     end
-  else
-    alert:"No result"
   end 
 end
 

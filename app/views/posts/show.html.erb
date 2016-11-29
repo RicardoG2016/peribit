@@ -1,30 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<div class="jumbotron post post-show" style="border: none; border-bottom: 0.5px solid #a8a8a8;">
-    <a href="/posts/<%= @post.id %>" class="post-link"></a>
-    <%= image_tag @post.user.avatar.url(:thumb) %>
-    <h3><%= link_to @post.user.username, "/users/#{@post.user.id}" %></h3>
-
-
-    <p>
-      <%= link_to linkify_hashtags(@post.body), post_path(@post) %>
-    </p>
-
-    <p>
-      <strong>Time Left:</strong>
-      <%= distance_of_time_in_words(Time.now, @post.delete_at) %>
-    </p>
-
-
-
-    <span class="links">
-	    <%= link_to "Like #{@post.likers(User).count}", "/posts/#{@post.id}/like", class: "link", method: :post  %> |
-	    <%= link_to 'Reply', "/posts/#{@post.id}/reply", class: "link" %>
-	    <% if @post.user == current_user %> 
-	      | <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "link" %>
-	    <% end %>
-    </span>
+<div class="post-container" style="margin-top: 90px;">
+  <%= render "post", post: @post %>
 </div>
+  
 
 <div class="reply-container">
 	<% if @post.replies.length > 0 %>
