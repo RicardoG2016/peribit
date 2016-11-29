@@ -4,4 +4,6 @@ class Post < ApplicationRecord
   acts_as_likeable
   acts_as_mentioner
   has_many :replies
+
+  validates :body, presence: true, length: { minimum: 1, maximum: 140 }
 end

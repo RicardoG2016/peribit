@@ -20,13 +20,14 @@
 
 body {
 	background: #f5f8fa;
+	margin-bottom: 50px;
 }
 
 .post {
 	background: white;
 	margin-top: 0;
 	margin-bottom: 0;
-	border-bottom: 1px solid black;
+	border-bottom: 0.5px solid #c6c6c6;
 	border-radius: 0 !important;
 }
 
@@ -69,10 +70,115 @@ a.post-link {
 }
 
 .user-container, .post-container {
+	margin-top: 80px;
+}
+
+.fol-style {
+	margin-top: 75px;
+}
+
+.post-show {
+	margin-top: 75px;
+}
+
+.new-post {
+	padding: 0;
+	width: 600px;
+	margin: 100px auto;
+}
+
+.new-post > h1 {
+	font-size: 45px;
+	text-align: center;
+	margin-bottom: 35px;
+}
+
+.post-field > textarea {
+	width: 300px;	
+	height: 75px;
+}
+
+.post-field {
+	text-align: center;
+}
+
+.post-submit {
+	text-align: center;
+}
+
+.post-submit > input {
+	width: 95px;
+	margin-top: 10px;
+	color: #f9f9f9;
+}
+
+.new-reply {
+	margin-top: 100px;
+	text-align: center;
+}
+
+.new-reply > h1 {
+	font-size: 45px;
+	text-align: center;
+	margin-bottom: 35px;
+}
+
+.reply-field > textarea {
+	width: 300px;
+	height: 75px;
+}
+
+.reply-submit {
+	text-align: center;
+}
+
+.reply-submit > input {
+	width: 95px;
+	margin-top: 10px;
+	color: #f9f9f9;
+}
+
+.reply-container > .reply {
+	margin-bottom: 0;
+	border-bottom: 0.5px solid #a8a8a8;
+}
+
+.user-auth {
+	text-align: center;
 	margin-top: 100px;
 }
 
+.user-auth > h2 {
+	font-size: 40px;
+	margin-bottom: 15px;
+}
 
+.user-auth > form > .field > input {
+	width: 200px;
+}
 
+.user-auth > form > .field > label {
+	font-size: 16px;
+	margin-top: 22px;
+	margin-bottom: 10px;
+}
 
+.auth-submit > input {
+	margin-top: 15px;
+	width: 75px;
+}
+
+.update-btn {
+	margin-top: 15px;
+}
+
+.delete-acct-btn {
+	margin-top: 10px;
+}
+
+@media screen and (max-width: 990px) {
+	div.post-container {
+		margin-top: 20px;
+	}
+}
 

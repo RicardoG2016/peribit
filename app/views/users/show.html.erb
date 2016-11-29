@@ -23,36 +23,44 @@
 				<br>
 				<%= link_to "Edit Profile", edit_user_registration_path(current_user) %>
 			<% end %>
-		<!-- Followers Logic. -->
-		
 	</div>
-	<div class="container-fluid col-md-8 post-container" id="user-profile-feed">
-	<% @user.posts.each do |post| %>
-	  <div class="jumbotron post">
-	      <a href="/posts/<%= post.id %>" class="post-link"></a>
-        <%= image_tag @user.avatar.url(:thumb) %>
-	      <h3><%= link_to post.user.username, "/users/#{post.user.id}" %></h3>
+	<% if @user.posts.length > 0 %>
+		<div class="container-fluid col-md-8 post-container" id="user-profile-feed">
+		<% @user.posts.each do |post| %>
+		  <div class="jumbotron post">
+		      <a href="/posts/<%= post.id %>" class="post-link"></a>
+		      <%= image_tag @user.avatar.url(:thumb) %>
+		      <h3><%= link_to post.user.username, "/users/#{post.user.id}" %></h3>
 
 
-	      <p>
-	        <%= link_to linkify_hashtags(post.body), post_path(post) %>
-	      </p>
+		      <p>
+		        <%= link_to linkify_hashtags(post.body), post_path(post) %>
+		      </p>
 
-	      <p>
-	        <strong>Time Left:</strong>
-	        <%= distance_of_time_in_words(Time.now, post.delete_at) %>
-	      </p>
+		      <p>
+		        <strong>Time Left:</strong>
+		        <%= distance_of_time_in_words(Time.now, post.delete_at) %>
+		      </p>
 
 
 
-	      <%= link_to 'Like', "/posts/#{post.id}/like", method: :post %> <%= post.likers(User).count %> |
-	      <%= link_to 'Reply', "/posts/#{post.id}/reply" %>
-	      <% if post.user == current_user %> 
-	        | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-	      <% end %>
-	  </div>
-	<% end %> 
-	</div>
+		      <%= link_to 'Like', "/posts/#{post.id}/like", method: :post %> <%= post.likers(User).count %> |
+		      <%= link_to 'Reply', "/posts/#{post.id}/reply" %>
+		      <% if post.user == current_user %> 
+		        | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+		      <% end %>
+		  </div>
+		<% end %> 
+		</div>
+	<% else %>
+		<div class="container-fluid col-md-8 post-container" id="user-profile-feed">
+			<div class="jumbotron post">
+				<h3>
+					Sorry, there are no posts.
+				</h3>
+			</div>
+		</div>
+	<% end %>
 </main>
 
 

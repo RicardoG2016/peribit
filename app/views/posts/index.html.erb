@@ -9,11 +9,14 @@
   <%= link_to 'Followers', followers_path %> <%= current_user.followers(User).count %>
   <br>
   <%= link_to 'Following', following_path %> <%= current_user.followees(User).count %>
+  <br>
+  <%= link_to 'Edit Account', edit_user_registration_path %>
 </div>
   
 <div class="col-md-8 post-container">
- <% @posts.each do |post| %>
-  <div class="jumbotron post">
+<% if @posts.length > 0 %>
+   <% @posts.each do |post| %>
+    <div class="jumbotron post">
       <a href="/posts/<%= post.id %>" class="post-link"></a>
       <%= image_tag post.user.avatar.url(:thumb) %>
       <h3><%= link_to post.user.username, "/users/#{post.user.id}" %></h3>
@@ -34,8 +37,15 @@
       <% if post.user == current_user %> 
         | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
+    </div>
+  <% end %> 
+<% else %>
+  <div class="jumbotron post">
+    <h3>
+      Sorry, there are no posts.
+    </h3>
   </div>
-<% end %> 
+<% end %>
 </div>
 
 

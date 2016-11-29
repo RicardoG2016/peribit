@@ -11,12 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
+  <div class="field post-field">
+    <%= f.text_area :body, placeholder: " Max of 140 characters" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions post-submit">
+    <%= f.submit("Post", class: "btn") %>
   </div>
 <% end %>

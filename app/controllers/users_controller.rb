@@ -9,6 +9,12 @@ class UsersController < ApplicationController
   	redirect_to('/')
   end
 
+  def delete
+    user = User.find(params[:id])
+    user.destroy
+    redirect_to('/')
+  end
+
   def follow
   	user = User.find(params[:id])
   	current_user.follow!(user)

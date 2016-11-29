@@ -1,14 +1,15 @@
-<h1>New Reply</h1>
+<div class="new-reply">
+	<h1>New Reply</h1>
 
-<%= form_tag("/posts/#{@post.id}/reply", method: "post") do %>
+	<%= form_tag("/posts/#{@post.id}/reply", method: "post") do %>
 
-  <div class="field">
-    <%= label_tag(:q, "Body") %>
-    <%= text_field_tag "reply[body]" %>
-  </div>
+	  <div class="field reply-field">
+	  <textarea name="reply[body]" placeholder=" Max of 140 characters"></textarea>
+	  </div>
 
-  <div class="actions">
-    <%= submit_tag("Submit") %>
-  </div>
-<% end %>
-<%= link_to 'Back', replies_path %>
+	  <div class="actions reply-submit">
+	    <%= submit_tag("Submit", class: "btn") %>
+	  </div>
+	<% end %>
+</div>
+
