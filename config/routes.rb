@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 	}
 	resources :posts
   
-  
   get 'search', to: "users#search"
 
 	get "users/:id",					 to: "users#show"

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
   # before_action :authenticate_user!
   
   # GET /posts
@@ -40,7 +41,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.delete_at = 3.hours.from_now
 
-    if @post.body.match(/^(http|https):/) != nil
+    if @post.body.match("(?:f|ht)tps?:\/[^\s]+") != nil
       link = @post.body.match("(?:f|ht)tps?:\/[^\s]+")
       @post.link = link[0]
       doc = Nokogiri::HTML(open(@post.link))

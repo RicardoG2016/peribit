@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 
 #----------------------Our Gems--------------------------
 gem 'devise'
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
 gem "socialization"
 gem 'simple_hashtag'
 gem 'searchkick'
@@ -42,7 +42,7 @@ gem 'clockwork'
 gem 'bonsai-elasticsearch-rails'
 gem 'nokogiri'
 gem 'youtube_addy'
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

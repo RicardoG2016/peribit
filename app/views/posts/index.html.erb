@@ -34,6 +34,7 @@
 </div>
 <div class="trending">
  <h2>Trending</h2>
+<<<<<<< HEAD
   <% if @trending %>
     <% @trending.each do |trend| %>
     <%= link_to truncate(trend.body, length: 40), "/posts/#{trend.id}" %>
@@ -41,11 +42,32 @@
     Time Left: <%= distance_of_time_in_words(Time.now, trend.delete_at) %>
     <br>
     <br>
+=======
+ <hr>
+  <% if @trending %>
+    <% @trending.each do |trend| %>
+      <% if trend.body != "" %>
+        <%= link_to truncate(trend.body, length: 40), "/posts/#{trend.id}" %>
+        <br>
+        Time Left: <%= distance_of_time_in_words(Time.now, trend.delete_at) %>
+        <br>
+        <br>
+      <% else %>
+        <%= link_to truncate(trend.og_title, length: 40), "/posts/#{trend.id}" %>
+        <br>
+        Time Left: <%= distance_of_time_in_words(Time.now, trend.delete_at) %>
+        <br>
+        <br>
+      <% end %>
+>>>>>>> b8a973d900ab1502947c8d1dec10dc73a1ac20c3
     <% end %>
   <% end %>
 </div>
 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> b8a973d900ab1502947c8d1dec10dc73a1ac20c3
 <div class="col-md-8 post-container">
 <% if @posts.length > 0 %>
    <% @posts.each do |post| %>
