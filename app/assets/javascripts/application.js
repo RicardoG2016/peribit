@@ -13,5 +13,15 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+	postClick();
+});
+
+var postClick = function() {
+	$("body").on("click", ".index-post-div", function(e) {
+		var u = "/posts/" + $(this).data('id');
+		window.location = u;
+	});
+};

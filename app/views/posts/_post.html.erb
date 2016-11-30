@@ -1,41 +1,44 @@
-<div class="container-fluid jumbotron post">
-	<div class="row">
-		<div class="avatar pull-left">
-			<%= image_tag post.user.avatar.url(:thumb), class: "img-circle" %>
-		</div>
-		<div class="post-info col-md-8">
-			<h3><%= link_to post.user.username, "/users/#{post.user.id}" %></h3>
-			<p>
-		    <%= link_to linkify_hashtags(post.body), post_path(post) %>
-		  </p>
-		  <% if post.image.url != "/images/original/missing.png" && post.link == nil %>
-				<%= image_tag post.image.url(:medium) %>
-			<% elsif post.image.url != "/images/original/missing.png" %>
-				<div class="hero-feature">
-					<% if post.link.include? "youtu" %>
-						<iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.link) %>" frameborder="0" allowfullscreen class="youtube-embed"></iframe>
-					<% else %>
-				    <div class="thumbnail">
-				        <%= image_tag post.image.url(:large) %>
-				        <div class="caption">
-				            <h3><%= link_to post.og_title, post.link %></h3>
-				            <p><%= post.og_description %></p>
-				        </div>
-				    </div>
-				  <% end %>
-				</div>
-		  <% end %>
-		  <p>
-		    <strong>Time Left:</strong>
-		    <%= distance_of_time_in_words(Time.now, post.delete_at) %>
+	<div class="container-fluid jumbotron post index-post-div" data-id="<%= post.id %>">
+		<div class="row">
+			<div class="avatar pull-left">
+				<%= image_tag post.user.avatar.url(:thumb), class: "img-circle" %>
+			</div>
+			<div class="post-info col-md-8">
+				<h3><%= link_to post.user.username, "/users/#{post.user.id}" %></h3>
+				<p>
+			    <%= linkify_hashtags(post.body) %>
 			  </p>
-			<div class="post-links">
-				<%= link_to 'Like', "/posts/#{post.id}/like", method: :post %> <%= post.likers(User).count %> |
-			  <%= link_to 'Reply', "/posts/#{post.id}/reply" %>
-			  <% if post.user == current_user %> 
-			    | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+			  <% if post.image.url != "/images/original/missing.png" && post.link == nil %>
+					<%= image_tag post.image.url(:medium) %>
+				<% elsif post.image.url != "/images/original/missing.png" %>
+					<div class="hero-feature">
+						<% if post.link.include? "youtu" %>
+							<iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.link) %>" frameborder="0" allowfullscreen class="youtube-embed"></iframe>
+						<% else %>
+					    <div class="thumbnail">
+					        <%= image_tag post.image.url(:large) %>
+					        <div class="caption">
+					            <h3><%= link_to post.og_title, post.link %></h3>
+					            <p><%= post.og_description %></p>
+					        </div>
+					    </div>
+					  <% end %>
+					</div>
 			  <% end %>
+			  <p>
+			    <strong>Time Left:</strong>
+			    <%= distance_of_time_in_words(Time.now, post.delete_at) %>
+				  </p>
+				<div class="post-links">
+					<%= link_to 'Like', "/posts/#{post.id}/like", method: :post %> <%= post.likers(User).count %> |
+				  <%= link_to 'Reply', "/posts/#{post.id}/reply" %>
+				  <% if post.user == current_user %> 
+				    | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+				  <% end %>
+				  <noscript>
+				  	| <a href="/posts/<%= post.id %>">View Post</a>
+				  </noscript>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
