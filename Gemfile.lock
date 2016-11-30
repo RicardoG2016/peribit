@@ -233,7 +233,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (~> 1.6)
+  aws-sdk (< 2.0)
   bonsai-elasticsearch-rails
   bootstrap-sass (~> 3.3.6)
   byebug
