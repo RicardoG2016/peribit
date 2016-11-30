@@ -19,17 +19,17 @@
 
 
 body {
-	background: #f5f8fa;
+	background: #f1f1f1;
 	margin-bottom: 50px;
 	font-family: 'Raleway', sans-serif;
 }
 
 .post {
 	min-width: 500px;
-	background: white;
+	background: #FFF;
 	margin-top: 0;
 	margin-bottom: 0;
-	border-bottom: 0.5px solid #c6c6c6;
+	border-bottom: 1.5px solid #DCE0E2;
 	border-radius: 0 !important;
 }
 
@@ -50,7 +50,7 @@ a.post-link {
 .reply {
 	border-radius: 0 !important;
 	margin-bottom: 0;
-	border-bottom: 0.5px solid #c6c6c6;
+	border-bottom: 1.5px solid #DCE0E2;
 	background: #f7f6f4;
 }
 
@@ -74,6 +74,12 @@ p.reply-par {
 
 .link {
 	font-size: 20px;
+}
+
+.user-container {
+	background: #FFF;
+	border: 1.5px solid #DCE0E2;
+	border-radius: 0px !important;
 }
 
 .user-container, .post-container {
