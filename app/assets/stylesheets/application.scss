@@ -286,7 +286,7 @@ p.reply-par {
 // table
 .user-info-table {
 	width: 260px;
-	margin-top: 22px;
+	margin-top: 17px;
 	margin-left: -18px;
 }
 
@@ -298,12 +298,9 @@ p.reply-par {
 	text-align: center;
 }
 
-div#user-profile {
-	float: left;
-}
-
 div#user-profile-feed {
 	float: left;
+	margin-top: 20px;
 }
 
 div.index-profile-avatar {
@@ -324,6 +321,46 @@ div.index-profile-info {
 	padding-bottom: 90px;
 }
 
+#user-profile {
+	display: block;
+	height: 250px;
+	margin: 100px auto;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+#user-profile > .index-profile-avatar {
+	display: inline-block;
+	margin-left: 25px;
+	float: left;
+}
+
+span.profile-links-list > a {
+	padding: 6px;
+}
+
+span.profile-links-list {
+	display: block;
+	margin-left: -10px;
+	padding: 5px;
+	margin-top: 15px;
+	padding-bottom: 0;
+}
+
+#user-profile > .index-profile-info > h2 {
+	font-size: 40px;
+	margin-top: 0;
+}
+
+#user-profile > .index-profile-info > h4 {
+	font-size: 25px;
+}
+
+#user-profile > .index-profile-info {
+	display: inline-block;
+	margin-left: 80px;
+}
+
 @media screen and (max-width: 991px) {
 	div.post-container {
 		margin-top: 20px;
@@ -331,6 +368,10 @@ div.index-profile-info {
 
 	#index-profile {
 		min-width: 530px;
+	}
+
+	#user-profile {
+		min-width: 560px;
 	}
 
 	div.index-profile-avatar,
