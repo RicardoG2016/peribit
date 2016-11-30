@@ -13,79 +13,66 @@
 
   <body>
   <% if current_user %>
-		  <nav class="navbar navbar-default navbar-fixed-top">
-	  <div class="container">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="/">embr</a>
-	    </div>
-	    <div id="navbar" class="navbar-collapse collapse">
-	      <ul class="nav navbar-nav">
-	      	<% if !current_user %>
-	        	<li><a href="/users/sign_in">Log In</a></li>
-	        	<li><a href="/users/sign_up">Sign Up</a></li>
-	        <% else %>
-			<li><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
-	        	<li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-	        <% end %>
-	      </ul>
-	      <ul class="nav navbar-nav navbar-right">
-	      	<li><a href="/posts/new">New Post</a></li>
-	      </ul>
-        
-        <%= form_tag search_path, method: :get, class: "navbar-form navbar-right nav-style", role: "search" do %>
-        <p>
-          <%= text_field_tag :search, params[:search], class: "btn btn-default" %>
-          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-        </p>
-        <% end %>  
-	    </div>
-	  </div>
-	</nav>
-<% else %>
-
-<!-- ------------------------------ -->
-
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">embr</a>
-<div class="landing_form">
-            <%= form_for(resource, as: resource_name, class: "new_user form-inline", url: session_path(resource_name)) do |f| %>
-              <div class="email">
-                <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true %>
-              </div>
-            <br>
-              <div class="pw">
-                <%= f.label :password %><br />
-                <%= f.password_field :password, autocomplete: "off" %>  
-              </div>
-              
-            <div class="new_btn btn">
-              <%= f.submit "Log in", class: "sign_up btn btn-default"%>
+		<nav class="navbar navbar-default navbar-fixed-top">
+  	  <div class="container">
+  	    <div class="navbar-header">
+  	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+  	        <span class="sr-only">Toggle navigation</span>
+  	        <span class="icon-bar"></span>
+  	        <span class="icon-bar"></span>
+  	        <span class="icon-bar"></span>
+  	      </button>
+  	      <a class="navbar-brand" href="/">embr</a>
+  	    </div>
+  	    <div id="navbar" class="navbar-collapse collapse">
+  	      <ul class="nav navbar-nav">
+  	      	<% if !current_user %>
+  	        	<li><a href="/users/sign_in">Log In</a></li>
+  	        	<li><a href="/users/sign_up">Sign Up</a></li>
+  	        <% else %>
+  			<li><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
+  	        	<li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+  	        <% end %>
+  	      </ul>
+  	      <ul class="nav navbar-nav navbar-right">
+  	      	<li><a href="/posts/new">New Post</a></li>
+  	      </ul>
+          
+          <%= form_tag search_path, method: :get, class: "navbar-form navbar-right nav-style", role: "search" do %>
+          <p>
+            <%= text_field_tag :search, params[:search], class: "btn btn-default" %>
+            <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+          </p>
+          <% end %>  
+  	    </div>
+  	  </div>
+  	</nav>
+  <% else %>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">embr</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do |f| %>
+            <div class="form-group">
+              <%= f.text_field :email, :placeholder => "Email", class: "form-control" %> 
             </div>
+            <div class="form-group">
+              <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+            </div>
+            <%= f.submit 'Login', class: "btn btn-default" %>
           <% end %>
-
-</div>
-
-
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 <% end %>
-<!-- ---------------- -->
 
 
   	<div class="container">

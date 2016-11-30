@@ -14,7 +14,7 @@
    <h2>Trending</h2>
     <% if @trending %>
       <% @trending.each do |trend| %>
-      <%= link_to trend.body, "/posts/#{trend.id}" %>
+      <%= link_to truncate(trend.body, length: 40), "/posts/#{trend.id}" %>
       <br>
       Time Left: <%= distance_of_time_in_words(Time.now, trend.delete_at) %>
       <br>
