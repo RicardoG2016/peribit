@@ -1,7 +1,7 @@
 <div class="new-reply">
 	<h1>New Reply</h1>
 
-	<%= form_tag("/posts/#{@post.id}/reply", method: "post") do %>
+	<%= form_tag("/posts/#{post.id}/reply", method: "post") do %>
 
 	  <div class="field reply-field">
 	  <textarea name="reply[body]" placeholder=" Max of 140 characters"></textarea>
