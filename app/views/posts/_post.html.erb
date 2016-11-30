@@ -15,7 +15,7 @@
 					<% if post.link.include? "youtu" %>
 						<iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.link) %>" frameborder="0" allowfullscreen class="youtube-embed"></iframe>
 					<% else %>
-				    <div class="thumbnai l">
+				    <div class="thumbnail">
 				        <%= image_tag post.image.url(:large) %>
 				        <div class="caption">
 				            <h3><%= link_to post.og_title, post.link %></h3>
