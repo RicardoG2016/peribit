@@ -3,7 +3,6 @@
 		<div class="avatar pull-left">
 			<%= image_tag post.user.avatar.url(:thumb), class: "img-circle" %>
 		</div>
-
 		<div class="post-info col-md-8">
 			<h3><%= link_to post.user.username, "/users/#{post.user.id}" %></h3>
 			<p>
@@ -14,7 +13,7 @@
 			<% elsif post.image.url != "/images/original/missing.png" %>
 				<div class="hero-feature">
 					<% if post.link.include? "youtu" %>
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.link) %>" frameborder="0" allowfullscreen></iframe>
+						<iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.link) %>" frameborder="0" allowfullscreen class="youtube-embed"></iframe>
 					<% else %>
 				    <div class="thumbnail">
 				        <%= image_tag post.image.url(:large) %>
@@ -25,8 +24,6 @@
 				    </div>
 				  <% end %>
 				</div>
-			
-
 		  <% end %>
 		  <p>
 		    <strong>Time Left:</strong>
@@ -41,9 +38,4 @@
 			</div>
 		</div>
 	</div>
-
-
-	
-	
-
 </div>
