@@ -271,8 +271,23 @@ p.reply-par {
 	text-shadow: none;
 }
 
-#index-profile {
+.user-container {
+	padding-bottom: 30px;
+}
 
+// table
+.user-info-table {
+	width: 260px;
+	margin-top: 22px;
+	margin-left: -18px;
+}
+
+.user-info-label > td {
+	text-align: center;
+}
+
+.user-info-content > td {
+	text-align: center;
 }
 
 div#user-profile {
@@ -281,6 +296,20 @@ div#user-profile {
 
 div#user-profile-feed {
 	float: left;
+}
+
+div.index-profile-avatar {
+	margin: 0;
+	padding: 0;
+	width: 150px;
+	margin-left: -15px;
+}
+
+div.index-profile-info {
+	margin: 0;
+	padding: 0;
+	margin-left: -15px;
+	text-align: left;
 }
 
 .jumbotron.reply {
@@ -295,6 +324,20 @@ div#user-profile-feed {
 	#index-profile {
 		min-width: 530px;
 	}
+
+	div.index-profile-avatar,
+	div.index-profile-info {
+		display: inline-block;
+	}
+
+	div.index-profile-avatar {
+		margin-left: 25px;
+	}
+
+	div.index-profile-info {
+		margin-left: 75px;
+	}
+
 }
 
 @media screen and (max-width: 767px) {
