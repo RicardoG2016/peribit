@@ -11,8 +11,8 @@ class User < ApplicationRecord
   acts_as_followable
   acts_as_liker
   acts_as_mentionable
-  has_many :posts
-  has_many :replies
+  has_many :posts, dependent: :destroy
+  has_many :replies, dependent: :destroy
   validates :username, presence: true
   validates :fullname, presence: true
   private
