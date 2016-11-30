@@ -93,11 +93,21 @@ class PostsController < ApplicationController
 
   def like_post
     @post = Post.find(params[:id])
-    if !current_user.likes?(@post)
-      current_user.like!(@post)
-      @post.delete_at += 15.minutes
-      @post.save
-      redirect_to :back
+    if request.xhr?
+      if !current_user.likes?(@post)
+        @post.delete_at += 15.minutes
+        current_user.like!(@post)
+        @like = @post.likers(User).count.to_s
+        @post.save
+        render json: @like
+      end
+    else
+      if !current_user.likes?(@post)
+        current_user.like!(@post)
+        @post.delete_at += 15.minutes
+        @post.save
+        redirect_to :back
+      end
     end
   end
 

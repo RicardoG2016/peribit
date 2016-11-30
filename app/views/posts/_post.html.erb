@@ -30,7 +30,7 @@
 		    <%= distance_of_time_in_words(Time.now, post.delete_at) %>
 			  </p>
 			<div class="post-links">
-				<%= link_to 'Like', "/posts/#{post.id}/like", method: :post %> <%= post.likers(User).count %> |
+				<%= link_to 'Like', "/posts/#{post.id}/like", method: :post,  remote: true, class: "like" %> <span class="like_count" ><%= post.likers(User).count %></span> |
 			  <%= link_to 'Reply', "/posts/#{post.id}/reply" %>
 			  <% if post.user == current_user %> 
 			    | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
