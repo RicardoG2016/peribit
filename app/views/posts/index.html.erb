@@ -1,4 +1,5 @@
-<div class="jumbotron col-md-4 user-container" id="index-profile">
+<div class="col-md-4">
+  <div class="jumbotron user-container" id="index-profile">
   <div class="index-profile-avatar">
    <%= image_tag current_user.avatar.url(:medium), class: "img-rounded" %>
   </div>
@@ -30,21 +31,28 @@
       </tr>
     </table>
   </div>
-  <div class="trending user-container">
-   <h2>Trending</h2>
-    <% if @trending %>
-      <% @trending.each do |trend| %>
-      <%= link_to truncate(trend.body, length: 40), "/posts/#{trend.id}" %>
-      <br>
-      Time Left: <%= distance_of_time_in_words(Time.now, trend.delete_at) %>
-      <br>
-      <br>
+</div>
+<div class="trending">
+ <h2>Trending</h2>
+  <% if @trending %>
+    <% @trending.each do |trend| %>
+      <% if trend.body != "" %>
+        <%= link_to truncate(trend.body, length: 40), "/posts/#{trend.id}" %>
+        <br>
+        Time Left: <%= distance_of_time_in_words(Time.now, trend.delete_at) %>
+        <br>
+        <br>
+      <% else %>
+        <%= link_to truncate(trend.og_title, length: 40), "/posts/#{trend.id}" %>
+        <br>
+        Time Left: <%= distance_of_time_in_words(Time.now, trend.delete_at) %>
+        <br>
+        <br>
       <% end %>
     <% end %>
-  </div>
+  <% end %>
 </div>
-
-
+</div>
 
 <div class="col-md-8 post-container">
 <% if @posts.length > 0 %>

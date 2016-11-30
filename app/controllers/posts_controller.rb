@@ -40,7 +40,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.delete_at = 3.hours.from_now
 
-    if @post.body.match(/^(http|https):/) != nil
+    if @post.body.match("(?:f|ht)tps?:\/[^\s]+") != nil
       link = @post.body.match("(?:f|ht)tps?:\/[^\s]+")
       @post.link = link[0]
       doc = Nokogiri::HTML(open(@post.link))
