@@ -15,3 +15,16 @@
 //= require jquery_ujs
 //= require_tree .
 
+$(document).ready(function() {
+  $('body').on('click', 'div.post-links a.like', function(e){
+    e.preventDefault();
+    var $t = $(this);
+    console.log( $t.attr('href') )
+    $.ajax({
+      url: $t.attr('href'),
+      type: 'POST'
+    }).done(function(server_response){
+      $t.siblings('.like_count').html(server_response)
+   })
+  })
+})
