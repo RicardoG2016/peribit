@@ -12,6 +12,7 @@
   </head>
 
   <body>
+  <% if current_user %>
 		  <nav class="navbar navbar-default navbar-fixed-top">
 	  <div class="container">
 	    <div class="navbar-header">
@@ -46,6 +47,47 @@
 	    </div>
 	  </div>
 	</nav>
+<% else %>
+
+<!-- ------------------------------ -->
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">embr</a>
+<div class="landing_form">
+            <%= form_for(resource, as: resource_name, class: "new_user form-inline", url: session_path(resource_name)) do |f| %>
+              <div class="email">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+            <br>
+              <div class="pw">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "off" %>  
+              </div>
+              
+            <div class="new_btn btn">
+              <%= f.submit "Log in", class: "sign_up btn btn-default"%>
+            </div>
+          <% end %>
+
+</div>
+
+
+      </div>
+    </div>
+  </nav>
+<% end %>
+<!-- ---------------- -->
+
+
   	<div class="container">
     	<%= yield %>	
   	</div>
