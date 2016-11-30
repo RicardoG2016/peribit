@@ -40,6 +40,7 @@ gem 'normalize-rails'
 gem 'pry'
 gem 'clockwork'
 gem 'bonsai-elasticsearch-rails'
+gem 'nokogiri'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
