@@ -1,4 +1,4 @@
-<div class="container-fluid jumbotron post">
+<div class="container-fluid jumbotron post index-post-div" data-id="<%= post.id %>">
 	<div class="row">
 		<div class="avatar pull-left">
 			<%= image_tag post.user.avatar.url(:thumb), class: "img-circle" %>
@@ -6,7 +6,7 @@
 		<div class="post-info col-md-8">
 			<h3><%= link_to post.user.username, "/users/#{post.user.id}" %></h3>
 			<p>
-		    <%= link_to linkify_hashtags(post.body), post_path(post) %>
+		    <%= linkify_hashtags(post.body) %>
 		  </p>
 		  <% if post.image.url != "/images/original/missing.png" && post.link == nil %>
 				<%= image_tag post.image.url(:medium) %>
@@ -31,10 +31,13 @@
 			  </p>
 			<div class="post-links">
 				<%= link_to 'Like', "/posts/#{post.id}/like", method: :post,  remote: true, class: "like" %> <span class="like_count" ><%= post.likers(User).count %></span> |
-			  <%= link_to 'Reply', "/posts/#{post.id}/reply", {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
+		  		<%= link_to 'Reply', "/posts/#{post.id}/reply", {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
 			  <% if post.user == current_user %> 
 			    | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 			  <% end %>
+			  <noscript>
+			  	| <a href="/posts/<%= post.id %>">View Post</a>
+			  </noscript>
 			</div>
 		</div>
 	</div>
@@ -55,3 +58,5 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+	
