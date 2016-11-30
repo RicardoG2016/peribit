@@ -1,15 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-<div class="jumbotron col-md-4 user-container">
-  <%= image_tag current_user.avatar.url(:medium), class: "img-rounded" %>
-  <h2> <%= current_user.fullname %> </h2>
-  <h4> <%= current_user.username %> </h4>
-  <%= link_to "Active Posts", "/users/#{current_user.id}" %> <%= current_user.posts.count %> 
-  <br>
-  <%= link_to 'Followers', followers_path %> <%= current_user.followers(User).count %>
-  <br>
-  <%= link_to 'Following', following_path %> <%= current_user.followees(User).count %>
-
+<div class="jumbotron col-md-4 user-container" id="index-profile">
+  <div class="index-profile-avatar">
+   <%= image_tag current_user.avatar.url(:medium), class: "img-rounded" %>
+  </div>
+  <div class="index-profile-info">
+    <h2> <%= current_user.fullname %> </h2>
+    <h4> <%= current_user.username %> </h4>
+    <table class="user-info-table">
+      <tr class="user-info-label">
+        <td>
+          <%= link_to "Active Posts", "/users/#{current_user.id}" %>
+        </td>
+        <td>
+          <%= link_to 'Followers', followers_path %>
+        </td>
+        <td> 
+          <%= link_to 'Following', following_path %>
+        </td>
+      </tr>
+      <tr class="user-info-content">
+        <td>
+          <%= current_user.posts.count %> 
+        </td>
+        <td>
+          <%= current_user.followers(User).count %>
+        </td>
+        <td>
+          <%= current_user.followees(User).count %>
+        </td>
+      </tr>
+    </table>
+  </div>
   <div class="trending user-container">
    <h2>Trending</h2>
     <% if @trending %>
@@ -22,10 +42,11 @@
       <% end %>
     <% end %>
   </div>
-
 </div>
 
-<div class="col-md-8 post-container user-container">
+
+
+<div class="col-md-8 post-container">
 <% if @posts.length > 0 %>
    <% @posts.each do |post| %>
     <%= render "post", post: post %>

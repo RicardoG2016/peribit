@@ -5,9 +5,14 @@
 	<% if @following.count > 0 %>
 	    <% @following.each do |f| %>
 		    <div class="follower row">
-		        <%= image_tag f.avatar.url(:thumb) %>
-		    	<h3><%= link_to f.fullname, "/users/#{f.id}" %></h3>
-		    	<h4><%= f.username %></h4>
+		    	<div class="avatar">
+		        <%= image_tag f.avatar.url(:thumb), class: "img-circle", style: "margin-right: 30px;" %>
+		    	</div>
+		    	<div class="follow-info">
+			    	<h3>
+			    	<%= link_to f.fullname, "/users/#{f.id}" %></h3>
+			    	<h4><%= f.username %></h4>		    		
+		    	</div>
 		    </div>
 	    <% end -%>
 	<% else %>
