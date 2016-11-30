@@ -1,5 +1,5 @@
 
-<div class="user-auth">
+<div class="user-auth" id="user-edit-form">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true, method: :put }) do |f| %>
@@ -21,13 +21,13 @@
     </div>
 
     <div class="field">
-      <%= f.label :avatar %><br />
-      <%= f.file_field :avatar, autofocus: true%>
+      <%= f.label :bio %><br />
+      <%= f.text_area :bio, autofocus: true %>
     </div>
 
     <div class="field">
-      <%= f.label :bio %><br />
-      <%= f.text_area :bio, autofocus: true %>
+      <%= f.label :Upload_Profile_Picture, class: "btn" %><br />
+      <%= f.file_field :avatar, autofocus: true, style: "display: none;" %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -62,7 +62,7 @@
     </div>
   <% end %>
   <br>
-  <hr>
+  <hr style="border: none; border-bottom: 1px solid #a3a19f;">
 
   <p><%= button_to "Cancel Account", "/users/#{@user.id}/account", data: { confirm: "Are you sure?" }, method: :delete, class: "btn delete-acct-btn" %></p>  
 </div>
