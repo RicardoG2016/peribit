@@ -36,6 +36,7 @@ gem "socialization"
 gem 'simple_hashtag'
 gem 'searchkick'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-modal-rails'
 gem 'normalize-rails'
 gem 'pry'
 gem 'clockwork'

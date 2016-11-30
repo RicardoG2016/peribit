@@ -15,7 +15,7 @@
 					<% if post.link.include? "youtu" %>
 						<iframe src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(post.link) %>" frameborder="0" allowfullscreen class="youtube-embed"></iframe>
 					<% else %>
-				    <div class="thumbnail">
+				    <div class="thumbnai l">
 				        <%= image_tag post.image.url(:large) %>
 				        <div class="caption">
 				            <h3><%= link_to post.og_title, post.link %></h3>
@@ -30,8 +30,8 @@
 		    <%= distance_of_time_in_words(Time.now, post.delete_at) %>
 			  </p>
 			<div class="post-links">
-				<%= link_to 'Like', "/posts/#{post.id}/like", method: :post %> <%= post.likers(User).count %> |
-			  <%= link_to 'Reply', "/posts/#{post.id}/reply" %>
+				<%= link_to 'Like', "/posts/#{post.id}/like", method: :post,  remote: true, class: "like" %> <span class="like_count" ><%= post.likers(User).count %></span> |
+			  <%= link_to 'Reply', "/posts/#{post.id}/reply", {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
 			  <% if post.user == current_user %> 
 			    | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 			  <% end %>
@@ -39,3 +39,19 @@
 		</div>
 	</div>
 </div>
+<div id="modal-window" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <%= render "/replies/new", {:@post => post} %> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
