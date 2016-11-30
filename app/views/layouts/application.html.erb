@@ -24,7 +24,7 @@
 	      <a class="navbar-brand" href="/">embr</a>
 	    </div>
 	    <div id="navbar" class="navbar-collapse collapse">
-	      <ul class="nav navbar-nav">
+	      <ul class="nav navbar-nav" id="dropdown-menu-list" style="margin-bottom: 0; padding-bottom: 0;">
 	      	<% if !current_user %>
 	        	<li><a href="/users/sign_in">Log In</a></li>
 	        	<li><a href="/users/sign_up">Sign Up</a></li>
@@ -33,7 +33,7 @@
 	        	<li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
 	        <% end %>
 	      </ul>
-	      <ul class="nav navbar-nav navbar-right">
+	      <ul class="nav navbar-nav navbar-right" style="margin-top: 0; padding-top: 0; margin-bottom: 0; padding-bottom: 0;">
 	      	<li><a href="/posts/new">New Post</a></li>
 	      </ul>
         

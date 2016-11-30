@@ -197,6 +197,7 @@ p.reply-par {
 }
 
 .navbar-default .navbar-nav > li > a {
+	background: #db3236;
 	color: white;
 	height: 59px;
 	letter-spacing: 1px;
@@ -371,6 +372,10 @@ span.profile-links-list {
 	text-align: center;
 }
 
+.navbar-form {
+	margin-right: -45px;
+}
+
 @media screen and (max-width: 991px) {
 	div.post-container {
 		margin-top: 20px;
@@ -403,5 +408,21 @@ span.profile-links-list {
 	div.avatar {
 		margin-left: 25px;
 	}
+
+	.navbar-form {
+		margin-top: 0;
+		padding-top: 0;
+		background: #db3236;
+	}
+
+	.search-box {
+		margin-top: 10px;
+	}
+
+	.navbar-form > p > input[type="submit"] {
+		margin-top: 10px;
+		margin-left: 7px;
+	}
+
 }
 
