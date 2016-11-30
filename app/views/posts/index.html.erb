@@ -9,9 +9,23 @@
   <%= link_to 'Followers', followers_path %> <%= current_user.followers(User).count %>
   <br>
   <%= link_to 'Following', following_path %> <%= current_user.followees(User).count %>
+
+  <div class="trending user-container">
+   <h2>Trending</h2>
+    <% if @trending %>
+      <% @trending.each do |trend| %>
+      <%= link_to truncate(trend.body, length: 40), "/posts/#{trend.id}" %>
+      <br>
+      Time Left: <%= distance_of_time_in_words(Time.now, trend.delete_at) %>
+      <br>
+      <br>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>
-  
-<div class="col-md-8 post-container">
+
+<div class="col-md-8 post-container user-container">
 <% if @posts.length > 0 %>
    <% @posts.each do |post| %>
     <%= render "post", post: post %>
