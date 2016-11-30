@@ -1,16 +1,21 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
-
+  # before_action :authenticate_user!
+  
   # GET /posts
   # GET /posts.json
   def index
-    @posts = []
-    Post.all.each do |post|
-      if current_user.follows?(post.user) || post.user == current_user
-        @posts << post 
+    if !current_user
+      redirect_to '/users/sign_up'
+    else
+      @trending = Post.trending
+      @posts = []
+      Post.all.each do |post|
+        if current_user.follows?(post.user) || post.user == current_user
+          @posts << post 
+        end
       end
-    end
+    end 
   end
 
   # GET /posts/1
@@ -35,8 +40,24 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.delete_at = 3.hours.from_now
 
+    if @post.body.match(/^(http|https):/) != nil
+      link = @post.body.match("(?:f|ht)tps?:\/[^\s]+")
+      @post.link = link[0]
+      doc = Nokogiri::HTML(open(@post.link))
+      @post.image = doc.search('meta[property="og:image"]').pluck('content')[0]
+      @post.og_description = doc.search('meta[property="og:description"]').pluck('content')[0]
+      @post.og_title = doc.search('meta[property="og:title"]').pluck('content')[0]
+      if @post.og_description != nil
+        @post.body.gsub!(@post.link, "").strip
+      end
+    end
+
     respond_to do |format|
       if @post.save
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @post }
+      elsif @post.body == "" && @post.link != nil 
+        @post.save(validate: false)
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -88,6 +109,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:body, :delete_at, :user_id)
+      params.require(:post).permit(:body, :delete_at, :user_id, :image)
     end
 end
