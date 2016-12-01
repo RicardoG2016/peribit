@@ -31,7 +31,7 @@
 			  </p>
 			<div class="post-links">
 				<%= link_to 'Like', "/posts/#{post.id}/like", method: :post,  remote: true, class: "like" %> <span class="like_count" ><%= post.likers(User).count %></span> |
-		  		<%= link_to 'Reply', "/posts/#{post.id}/reply", {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
+				<a data-toggle="modal" data-target="#modal-window-<%= post.id %>" data-remote="true" href="/posts/<%= post.id %>/reply">Reply</a>
 			  <% if post.user == current_user %> 
 			    | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 			  <% end %>
@@ -42,7 +42,7 @@
 		</div>
 	</div>
 </div>
-<div id="modal-window" class="modal fade" tabindex="-1" role="dialog">
+<div id="modal-window-<%= post.id %>" class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
