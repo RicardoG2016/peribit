@@ -16,7 +16,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-  postClick();
   $('body').on('click', 'div.post-links a.like', function(e){
     e.preventDefault();
     var $t = $(this);
@@ -26,9 +25,10 @@ $(document).ready(function() {
       type: 'POST'
     }).done(function(server_response){
       $t.siblings('.like_count').html(server_response)
-   })
-  })
-})
+   });
+  });
+  postClick();
+});
 	
 var postClick = function() {
 	$("body").on("click", ".index-post-div", function(e) {
