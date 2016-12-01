@@ -16,7 +16,7 @@
 //= require_tree .
 
 $(document).ready(function() {
-  postClick();
+  // postClick();
   $('body').on('click', 'div.post-links a.like', function(e){
     e.preventDefault();
     var $t = $(this);
