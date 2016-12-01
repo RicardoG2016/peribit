@@ -100,9 +100,9 @@ class PostsController < ApplicationController
         @post.delete_at += 15.minutes if @post.user != current_user
         current_user.like!(@post)
         @post.save
-        @like = @post.likers(User).count.to_s
-        render json: @like
       end
+      @like = @post.likers(User).count.to_s
+      render json: { like: @like }
     else
       if !current_user.likes?(@post) 
         if @post.user != current_user

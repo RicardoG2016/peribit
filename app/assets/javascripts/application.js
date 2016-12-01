@@ -26,7 +26,7 @@ $(document).ready(function() {
       url: $t.attr('href'),
       type: 'POST'
     }).done(function(server_response) {
-      $t.siblings('.like_count').html(server_response);
+      $t.siblings('.like_count').html(server_response['like']);
     });
   });
   postClick();
