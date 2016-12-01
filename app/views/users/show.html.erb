@@ -43,7 +43,7 @@
 	<% if @user.posts.length > 0 %>
 	<div class="row">
 		<div class="container-fluid col-md-12 post-container" id="user-profile-feed">
-			<% @user.posts.each do |post| %>
+			<% @user.posts.order("id DESC").each do |post| %>
 			  <%= render "/posts/post", post: post %>
 			<% end %> 
 			</div>
