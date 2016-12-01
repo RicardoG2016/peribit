@@ -18,6 +18,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.hidden {
+	display: none;
+}
 
 body {
 	background: #f1f1f1;
