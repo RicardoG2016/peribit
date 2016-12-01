@@ -1,7 +1,8 @@
 class FollowingController < ApplicationController
 
   def index 
-    @following = current_user.followees(User)
+  	@user = User.find(params[:id])
+    @following = @user.followees(User)
   end
 
 end

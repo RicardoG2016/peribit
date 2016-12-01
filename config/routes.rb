@@ -18,8 +18,8 @@ Rails.application.routes.draw do
 	get "posts/:id/reply",     to: "replies#new"
 	post "posts/:id/reply",     to: "replies#create"
 	delete "replies/:id",		   to: "replies#destroy"
-  get "followers",           to: "followers#index",    as: :followers
-  get "following",           to: "following#index",    as: :following
+  	get "users/:id/followers",           to: "followers#index",    as: :followers
+  	get "users/:id/following",           to: "following#index",    as: :following
 	
   root "posts#index"
 end

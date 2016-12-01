@@ -12,10 +12,10 @@
           <%= link_to "Active Posts", "/users/#{current_user.id}" %>
         </td>
         <td>
-          <%= link_to 'Followers', followers_path %>
+          <%= link_to 'Followers', "/users/#{current_user.id}/followers" %>
         </td>
         <td> 
-          <%= link_to 'Following', following_path %>
+          <%= link_to 'Following', "/users/#{current_user.id}/following" %>
         </td>
       </tr>
       <tr class="user-info-content">

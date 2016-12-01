@@ -8,9 +8,19 @@
     <h2> <%= @user.fullname %> </h2>
     <h4> <%= @user.username %> </h4>
     <% if @user == current_user %>
-    <span class="profile-links-list">
-    	<%= link_to "Edit Profile", edit_registration_path(@user) %>
-    </span>
+      <span class="profile-links-list">
+      	<%= link_to "Edit Profile", edit_registration_path(@user) %>
+      </span>
+    <% else %>
+      <% if !current_user.follows?(@user) %>
+        <form action="/users/<%= @user.id %>/follow" method="post">
+          <input type="submit" value="Follow" class="btn">
+        </form>
+      <% else %>
+        <form action="/users/<%= @user.id %>/unfollow" method="post">
+          <input type="submit" value="Unfollow" class="btn">
+        </form>
+      <% end %>
     <% end %>
     <table class="user-info-table">
       <tr class="user-info-label">
@@ -18,10 +28,10 @@
           <%= link_to "Active Posts", "/users/#{@user.id}" %>
         </td>
         <td>
-          <%= link_to 'Followers', followers_path %>
+          <%= link_to 'Followers', "/users/#{@user.id}/followers" %>
         </td>
         <td> 
-          <%= link_to 'Following', following_path %>
+          <%= link_to 'Following', "/users/#{@user.id}/following" %>
         </td>
       </tr>
       <tr class="user-info-content">
@@ -36,6 +46,7 @@
         </td>
       </tr>
     </table>
+
   </div>
 
 	</div>
