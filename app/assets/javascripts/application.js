@@ -34,7 +34,9 @@ $(document).ready(function() {
     var len = arr.length;
 
     for (var i = 0; i < len; i ++) {
-      $( arr[i] ).countdown({ until: $(this).children().text() });
+      var $el = $( arr[i] );
+      var time = $el.children().text().toString();
+      $el.countdown({ until: new Date(time) });
     };
 
 
