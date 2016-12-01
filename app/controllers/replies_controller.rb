@@ -14,8 +14,14 @@ class RepliesController < ApplicationController
 
   # GET /replies/new
   def new
-    @post = Post.find(params[:id])
-    @reply = Reply.new
+    if request.xhr?
+      @post = Post.find(params[:id])
+      @reply = Reply.new
+      render "/replies/new"
+    else
+      @post = Post.find(params[:id])
+      @reply = Reply.new
+    end
   end
 
   # # GET /replies/1/edit
