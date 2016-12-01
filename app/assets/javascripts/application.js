@@ -47,7 +47,7 @@ var postCountDowns = function() {
   var len = arr.length;
   for (var i = 0; i < len; i ++) {
     var $el = $( arr[i] );
-    var time = $el.children().text().toString();
+    var time = $el.children('span').text().toString();
     $el.countdown({ until: new Date(time) });
   };
 }
