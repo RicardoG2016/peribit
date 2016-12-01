@@ -18,6 +18,7 @@
 //= require_tree .
 
 $(document).ready(function() {
+  postCountDowns();
   $('body').on('click', 'div.post-links a.like', function(e){
     e.preventDefault();
     var $t = $(this);
@@ -25,18 +26,14 @@ $(document).ready(function() {
       url: $t.attr('href'),
       type: 'POST'
     }).done(function(server_response){
-      $t.siblings('.like_count').html(server_response)
+      $t.siblings('.like_count').html(server_response['like']);
+      var timeDiv = $t.parent().parent().children('.remaining-time-count');
+      $(timeDiv).removeClass().addClass('new-remaining-time-count');
+      $(timeDiv).empty()
+      var time = new Date( server_response['time'].toString() );
+      $(timeDiv).html( $(timeDiv).countdown({ until: time }) );
    });
   });
-  $.countdown.setDefaults($.countdown.regionalOptions['']);
-  var arr = $(".remaining-time-count");
-  var len = arr.length;
-
-  for (var i = 0; i < len; i ++) {
-    var $el = $( arr[i] );
-    var time = $el.children().text().toString();
-    $el.countdown({ until: new Date(time) });
-  };
   postClick();
 });
 	
@@ -48,3 +45,18 @@ var postClick = function() {
     };
 	});
 };
+
+var postCountDowns = function() {
+  $.countdown.setDefaults($.countdown.regionalOptions['']);
+  var arr = $(".remaining-time-count");
+  var len = arr.length;
+  for (var i = 0; i < len; i ++) {
+    var $el = $( arr[i] );
+    var time = $el.children().text().toString();
+    $el.countdown({ until: new Date(time) });
+  };
+}
+
+
+
+

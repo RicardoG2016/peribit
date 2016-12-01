@@ -102,7 +102,7 @@ class PostsController < ApplicationController
         current_user.like!(@post)
         @like = @post.likers(User).count.to_s
         @post.save
-        render json: @like
+        render json: { :like => @like, :time => @post.delete_at }
       end
     else
       if !current_user.likes?(@post) 
