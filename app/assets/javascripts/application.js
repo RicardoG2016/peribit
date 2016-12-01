@@ -16,24 +16,24 @@
 //= require_tree .
 
 $(document).ready(function() {
-  postClick();
   $('body').on('click', 'div.post-links a.like', function(e){
     e.preventDefault();
     var $t = $(this);
-    console.log( $t.attr('href') )
     $.ajax({
       url: $t.attr('href'),
       type: 'POST'
     }).done(function(server_response){
       $t.siblings('.like_count').html(server_response)
-   })
-  })
-})
+   });
+  });
+  postClick();
+});
 	
-
-// var postClick = function() {
-// 	$("body").on("click", ".index-post-div", function(e) {
-// 		var u = "/posts/" + $(this).data('id');
-// 		window.location = u;
-// 	});
-// };
+var postClick = function() {
+	$("body").on("click", ".index-post-div", function(e) {
+    if ( $(e.target).is('a') == false ) {
+      var u = "/posts/" + $(this).data('id');
+      window.location = u;  
+    };
+	});
+};
