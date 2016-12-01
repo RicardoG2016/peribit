@@ -9,13 +9,13 @@
     <h4> <%= @user.username %> </h4>
     <% if @user == current_user %>
     <span class="profile-links-list">
-    	<%= link_to "Edit Profile", edit_registration_path(current_user) %>
+    	<%= link_to "Edit Profile", edit_registration_path(@user) %>
     </span>
     <% end %>
     <table class="user-info-table">
       <tr class="user-info-label">
         <td>
-          <%= link_to "Active Posts", "/users/#{current_user.id}" %>
+          <%= link_to "Active Posts", "/users/#{@user.id}" %>
         </td>
         <td>
           <%= link_to 'Followers', followers_path %>

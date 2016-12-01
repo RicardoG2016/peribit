@@ -35,7 +35,7 @@
               <% end %>
             </ul>
             <ul class="nav navbar-nav navbar-right" style="margin-top: 0; padding-top: 0; margin-bottom: 0; padding-bottom: 0;">
-              <li><a href="/posts/new" data-toggle="modal" data-target="#modal-window" data-remote="true">New Post</a></li>
+              <li><a href="/posts/new">New Post</a></li>
             </ul>
             
             <%= form_tag search_path, method: :get, class: "navbar-form navbar-right nav-style", role: "search" do %>
@@ -77,22 +77,5 @@
     	<%= yield %>	
   	</div>
   </body>
-  <div id="modal-window" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Add a New Post</h4>
-      </div>
-      <div class="modal-body">
-        <%= render "/posts/new" %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
 </html>
 
