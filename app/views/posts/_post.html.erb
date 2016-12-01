@@ -25,10 +25,13 @@
 				  <% end %>
 				</div>
 		  <% end %>
-		  <p>
-		    <strong>Time Left:</strong>
-		    <%= distance_of_time_in_words(Time.now, post.delete_at) %>
-			  </p>
+		  <strong style="display: block; margin-bottom: 5px;">Time Remaining:</strong>
+			  	<p class="remaining-time-count">
+			  		<span style="display: none;"> <%= post.delete_at %> </span>	    
+				</p>
+				<noscript>
+		  			<%= distance_of_time_in_words(Time.now, post.delete_at) %>
+		  		</noscript>	
 			<div class="post-links">
 				<%= link_to 'Like', "/posts/#{post.id}/like", method: :post,  remote: true, class: "like" %> <span class="like_count" ><%= post.likers(User).count %></span> |
 				<a data-toggle="modal" data-target="#modal-window-<%= post.id %>" data-remote="true" href="/posts/<%= post.id %>/reply">Reply</a>

@@ -13,6 +13,8 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require jquery.countdown
+//= require jquery.countdown-es
 //= require_tree .
 
 $(document).ready(function() {
@@ -26,6 +28,15 @@ $(document).ready(function() {
       $t.siblings('.like_count').html(server_response)
    });
   });
+  $.countdown.setDefaults($.countdown.regionalOptions['']);
+  var arr = $(".remaining-time-count");
+  var len = arr.length;
+
+  for (var i = 0; i < len; i ++) {
+    var $el = $( arr[i] );
+    var time = $el.children().text().toString();
+    $el.countdown({ until: new Date(time) });
+  };
   postClick();
 });
 	
