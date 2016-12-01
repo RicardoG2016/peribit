@@ -16,7 +16,7 @@
 //= require_tree .
 
 $(document).ready(function() {
-  // postClick();
+  postClick();
   $('body').on('click', 'div.post-links a.like', function(e){
     e.preventDefault();
     var $t = $(this);
@@ -30,10 +30,11 @@ $(document).ready(function() {
   })
 })
 	
-
-// var postClick = function() {
-// 	$("body").on("click", ".index-post-div", function(e) {
-// 		var u = "/posts/" + $(this).data('id');
-// 		window.location = u;
-// 	});
-// };
+var postClick = function() {
+	$("body").on("click", ".index-post-div", function(e) {
+    if ( $(e.target).is('a') == false ) {
+      var u = "/posts/" + $(this).data('id');
+      window.location = u;  
+    };
+	});
+};
