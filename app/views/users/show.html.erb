@@ -2,40 +2,51 @@
 		<!-- If user avatars are added they will go here as well. -->
 	<div class="jumbotron user-container row" id="user-profile">
   <div class="index-profile-avatar">
-   <%= image_tag current_user.avatar.url(:medium), class: "img-rounded" %>
+   <%= image_tag @user.avatar.url(:medium), class: "img-rounded" %>
   </div>
   <div class="index-profile-info">
-    <h2> <%= current_user.fullname %> </h2>
-    <h4> <%= current_user.username %> </h4>
+    <h2> <%= @user.fullname %> </h2>
+    <h4> <%= @user.username %> </h4>
     <% if @user == current_user %>
-    <span class="profile-links-list">
-    	<%= link_to "Edit Profile", edit_registration_path(current_user) %>
-    </span>
+      <span class="profile-links-list">
+      	<%= link_to "Edit Profile", edit_registration_path(@user) %>
+      </span>
+    <% else %>
+      <% if !current_user.follows?(@user) %>
+        <form action="/users/<%= @user.id %>/follow" method="post">
+          <input type="submit" value="Follow" class="btn">
+        </form>
+      <% else %>
+        <form action="/users/<%= @user.id %>/unfollow" method="post">
+          <input type="submit" value="Unfollow" class="btn">
+        </form>
+      <% end %>
     <% end %>
     <table class="user-info-table">
       <tr class="user-info-label">
         <td>
-          <%= link_to "Active Posts", "/users/#{current_user.id}" %>
+          <%= link_to "Active Posts", "/users/#{@user.id}" %>
         </td>
         <td>
-          <%= link_to 'Followers', followers_path %>
+          <%= link_to 'Followers', "/users/#{@user.id}/followers" %>
         </td>
         <td> 
-          <%= link_to 'Following', following_path %>
+          <%= link_to 'Following', "/users/#{@user.id}/following" %>
         </td>
       </tr>
       <tr class="user-info-content">
         <td>
-          <%= current_user.posts.count %> 
+          <%= @user.posts.count %> 
         </td>
         <td>
-          <%= current_user.followers(User).count %>
+          <%= @user.followers(User).count %>
         </td>
         <td>
-          <%= current_user.followees(User).count %>
+          <%= @user.followees(User).count %>
         </td>
       </tr>
     </table>
+
   </div>
 
 	</div>
@@ -43,7 +54,7 @@
 	<% if @user.posts.length > 0 %>
 	<div class="row">
 		<div class="container-fluid col-md-12 post-container" id="user-profile-feed">
-			<% @user.posts.each do |post| %>
+			<% @user.posts.order("id DESC").each do |post| %>
 			  <%= render "/posts/post", post: post %>
 			<% end %> 
 			</div>

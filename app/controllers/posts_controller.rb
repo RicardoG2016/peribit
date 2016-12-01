@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     else
       @trending = Post.trending
       @posts = []
-      Post.all.each do |post|
+      Post.all.order("id DESC").each do |post|
         if current_user.follows?(post.user) || post.user == current_user
           @posts << post 
         end
