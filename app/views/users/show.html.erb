@@ -2,11 +2,11 @@
 		<!-- If user avatars are added they will go here as well. -->
 	<div class="jumbotron user-container row" id="user-profile">
   <div class="index-profile-avatar">
-   <%= image_tag current_user.avatar.url(:medium), class: "img-rounded" %>
+   <%= image_tag @user.avatar.url(:medium), class: "img-rounded" %>
   </div>
   <div class="index-profile-info">
-    <h2> <%= current_user.fullname %> </h2>
-    <h4> <%= current_user.username %> </h4>
+    <h2> <%= @user.fullname %> </h2>
+    <h4> <%= @user.username %> </h4>
     <% if @user == current_user %>
     <span class="profile-links-list">
     	<%= link_to "Edit Profile", edit_registration_path(current_user) %>
@@ -26,13 +26,13 @@
       </tr>
       <tr class="user-info-content">
         <td>
-          <%= current_user.posts.count %> 
+          <%= @user.posts.count %> 
         </td>
         <td>
-          <%= current_user.followers(User).count %>
+          <%= @user.followers(User).count %>
         </td>
         <td>
-          <%= current_user.followees(User).count %>
+          <%= @user.followees(User).count %>
         </td>
       </tr>
     </table>
