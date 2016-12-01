@@ -19,23 +19,14 @@
 
 $(document).ready(function() {
   postCountDowns();
-  $('body').on('click', 'div.post-links a.like', function(e){
+  $('div.post-links > a.like').on('click', function(e){
     e.preventDefault();
     var $t = $(this);
     $.ajax({
       url: $t.attr('href'),
       type: 'POST'
     }).done(function(server_response) {
-      $t.siblings('.like_count').html(server_response['like']);
-      if ( server_response['user'] != 'current_user' ) {
-        var timeDiv = $t.parent().parent().children('.remaining-time-count');
-        $(timeDiv).fadeOut(300);
-        $(timeDiv).removeClass().addClass('new-remaining-time-count');
-        $(timeDiv).empty()
-        var time = new Date( server_response['time'].toString() );
-        $(timeDiv).html( $(timeDiv).countdown({ until: time }) );
-        $(timeDiv).fadeIn(333)  
-      };
+      $t.siblings('.like_count').html(server_response);
     });
   });
   postClick();
