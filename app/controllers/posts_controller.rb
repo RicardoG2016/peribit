@@ -86,23 +86,30 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    # respond_to do |format|
+    #   format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
+    redirect_to :back
   end
 
   def like_post
     @post = Post.find(params[:id])
     if request.xhr?
+      response = {}
       if !current_user.likes?(@post) 
         if @post.user != current_user
           @post.delete_at += 15.minutes
+          response[:user] = 'user'
+        else
+          response[:user] = 'current_user'
         end
         current_user.like!(@post)
         @like = @post.likers(User).count.to_s
         @post.save
-        render json: { :like => @like, :time => @post.delete_at }
+        response[:like] = @like
+        response[:time] = @post.delete_at
+        render json: response
       end
     else
       if !current_user.likes?(@post) 
