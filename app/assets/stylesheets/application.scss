@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require normalize-rails
+ *= require jquery.countdown
  *= require_tree .
  *= require_self
  */
@@ -423,6 +424,11 @@ input#post_image {
 	background: #FFF;
 	padding: 10px 18px;
 	border: 1px solid #DCE0E2;
+}
+
+p.remaining-time-count.is-countdown {
+	height: 60px;
+	padding-top: 3px;
 }
 
 @media screen and (max-width: 991px) {

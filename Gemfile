@@ -44,6 +44,7 @@ gem 'bonsai-elasticsearch-rails'
 gem 'nokogiri'
 gem 'youtube_addy'
 gem 'aws-sdk', '< 2.0'
+gem 'jquery-countdown-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
