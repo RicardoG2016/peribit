@@ -20,6 +20,9 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+.hidden {
+	display: none;
+}
 
 body {
 	background: #f1f1f1;
@@ -450,9 +453,10 @@ input#post_image {
 	border: 1px solid #DCE0E2;
 }
 
-p.remaining-time-count.is-countdown {
+p.remaining-time-count.is-countdown, .new-remaining-time-count {
 	height: 60px;
 	padding-top: 3px;
+	max-width: 550px;
 }
 
 @media screen and (max-width: 991px) {

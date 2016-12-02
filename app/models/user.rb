@@ -13,7 +13,7 @@ class User < ApplicationRecord
   acts_as_mentionable
   has_many :posts, dependent: :destroy
   has_many :replies, dependent: :destroy
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
   validates :fullname, presence: true
   private
   def capitalize_name

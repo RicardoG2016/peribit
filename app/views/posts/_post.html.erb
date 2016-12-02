@@ -26,12 +26,16 @@
 				</div>
 		  <% end %>
 		  <strong style="display: block; margin-bottom: 5px;">Time Remaining:</strong>
-			  	<p class="remaining-time-count">
-			  		<span style="display: none;"> <%= post.delete_at %> </span>	    
+			  <p class="remaining-time-count">
+			  	<span style="display: none;"> <%= post.delete_at %> </span>	    
 				</p>
-			   	<noscript>
-		  			<%= distance_of_time_in_words(Time.now, post.delete_at) %>
-		  		</noscript>	
+				<noscript>
+					<style> .remaining-time-count { display: none; } </style>
+					<strong style="display: block; margin-bottom: 7px;">
+						<%= distance_of_time_in_words(Time.now, post.delete_at) %>
+					</strong>
+		  	</noscript>	
+
 			<div class="post-links">
 
         <% if post.likers(User).count == 1 %>
