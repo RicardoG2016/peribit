@@ -1,4 +1,9 @@
-<div class="user-auth">
+<div class="user-auth" id="user-create-form">
+<style>
+  body {
+    background-image: url(/assets/pattern.svg);
+  }
+</style>
   <h2>Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>

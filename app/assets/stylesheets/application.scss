@@ -414,7 +414,7 @@ span.profile-links-list {
 	margin-left: 80px;
 }
 
-#user-edit-form {
+#user-edit-form, #user-create-form {
 	border: 0.5px solid #a3a19f;
 	padding-top: 25px;
 	background: #FFF;
@@ -422,6 +422,12 @@ span.profile-links-list {
 	margin: 100px auto;
 	padding-bottom: 20px;
 	text-align: center;
+}
+
+#user-create-form {
+	width: 600px;
+	padding-bottom: 45px;
+	margin-bottom: 0;
 }
 
 .youtube-embed {
