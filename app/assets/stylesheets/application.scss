@@ -24,6 +24,18 @@
 	display: none;
 }
 
+form.navbar-form.navbar-right.form-inline {
+	padding-top: 4px;
+	background: #71ba62;
+}
+
+@media screen and (max-width: 767px) {
+	form.navbar-form.navbar-right.form-inline {
+		padding-top: 25px;	
+	}
+	
+}
+
 body {
 	background: #f1f1f1;
 	margin-bottom: 50px;
