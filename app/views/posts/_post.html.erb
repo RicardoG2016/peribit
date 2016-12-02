@@ -29,17 +29,36 @@
 			  	<p class="remaining-time-count">
 			  		<span style="display: none;"> <%= post.delete_at %> </span>	    
 				</p>
-				<noscript>
+			   	<noscript>
 		  			<%= distance_of_time_in_words(Time.now, post.delete_at) %>
 		  		</noscript>	
 			<div class="post-links">
-				<%= link_to 'Like', "/posts/#{post.id}/like", method: :post,  remote: true, class: "like" %> <span class="like_count" ><%= post.likers(User).count %></span> |
-				<a data-toggle="modal" data-target="#modal-window-<%= post.id %>" data-remote="true" href="/posts/<%= post.id %>/reply">Reply</a>
+
+        <% if post.likers(User).count == 1 %>
+          <span class="like_count social-bar" ><%= post.likers(User).count %>  Like </span> 
+        <% else %>
+          <span class="like_count social-bar" ><%= post.likers(User).count %>  Likes </span>
+        <% end %> 
+        
+        <% if post.replies.count == 1 %>
+        <span Class="reply_count social-bar"><%= post.replies.count %> Reply  </span>
+        <% else %>
+        <span Class="reply_count social-bar"><%= post.replies.count %> Replies  </span>
+        <% end %> 
+        
+        <hr>
+
+        <%= link_to "/posts/#{post.id}/like", method: :post, remote: true, :class => 'like' do %>
+          <i class="fa fa-thumbs-up social-bar" aria-hidden="true"></i>  Like
+        <% end %>
+      
+      <a class="social-bar" data-toggle="modal" data-target="#modal-window-<%= post.id %>" data-remote="true" href="/posts/<%= post.id %>/reply"><i class="fa fa-reply social-bar" aria-hidden="true"></i>  Reply</a>
+
 			  <% if post.user == current_user %> 
-			    | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+			    <i class="fa fa-trash social-bar" aria-hidden="true"></i><%= link_to '  Delete', post, method: :delete, :class => 'social-bar', data: { confirm: 'Are you sure?' }%>
 			  <% end %>
 			  <noscript>
-			  	| <a href="/posts/<%= post.id %>">View Post</a>
+			  	<a href="/posts/<%= post.id %>">  View Post</a>
 			  </noscript>
 			</div>
 		</div>

@@ -17,6 +17,8 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 
 body {
@@ -75,6 +77,24 @@ p.reply-par {
 
 .link {
 	font-size: 20px;
+}
+
+div.post-links > a {
+	padding-right: 20px;
+}
+
+.social-bar {
+	font-size: 14px;
+	letter-spacing: 1px;
+	text-decoration: none;
+}
+
+.fa-trash, .trending-bar, .fa-pencil {
+	color: #337ab7;
+}
+
+.reply_count, .like_count {
+	padding-right: 20px;
 }
 
 .user-container {
@@ -193,12 +213,12 @@ p.reply-par {
 }
 
 .navbar {
-	background: #db3236;
+	background: #71ea62;
 	height: 60px;
 }
 
 .navbar-default .navbar-nav > li > a {
-	background: #db3236;
+	background: #71ea62;
 	color: white;
 	height: 59px;
 	letter-spacing: 1px;
@@ -210,7 +230,7 @@ p.reply-par {
 .navbar-default .navbar-nav > li > a:hover {
 	text-shadow: 1px 2px #1e1e1e;
 	color: #FFF;
-	background: #BA2124;
+	background: #64a857;
 	text-shadow: 1px 1px #333;
 }
 
@@ -271,14 +291,18 @@ p.reply-par {
 }
 
 .btn {
-	background: #C9282A;
+	background: #606060;
 	color: #FFF;
+}
+
+.btn-default {
+	border: none;
 }
 
 .btn:hover {
 	text-shadow: 1px 2px #1e1e1e;
 	color: #FFF;
-	background: #BA2527;
+	background: #0496FF;
 	text-shadow: 1px 1px #333;
 }
 
@@ -471,7 +495,7 @@ p.remaining-time-count.is-countdown {
 	.navbar-form {
 		margin-top: 0;
 		padding-top: 0;
-		background: #db3236;
+		background: #205081;
 	}
 
 	.search-box {

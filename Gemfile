@@ -45,6 +45,7 @@ gem 'nokogiri'
 gem 'youtube_addy'
 gem 'aws-sdk', '< 2.0'
 gem 'jquery-countdown-rails'
+gem 'font-awesome-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -16,7 +16,7 @@
 					<p class="reply-par"><%= linkify_hashtags(reply.body) %></p>
 					<div class="post-links reply-links">
 						<% if reply.user == current_user %>
-							<%= link_to 'Delete', "/replies/#{reply.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: "link" %>
+							<i class="fa fa-trash social-bar" aria-hidden="true"></i><%= link_to 'Delete', "/replies/#{reply.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: "link" %>
 						<% end %>
 					</div>
 				</div>

@@ -6,6 +6,7 @@
   <div class="index-profile-info">
     <h2> <%= current_user.fullname %> </h2>
     <h4> <%= current_user.username %> </h4>
+    <hr>
     <table class="user-info-table">
       <tr class="user-info-label">
         <td>
@@ -38,12 +39,15 @@
   <% if @trending %>
     <% @trending.each do |trend| %>
       <% if trend.body != "" %>
+        <i class="fa fa-arrow-up trending-bar" aria-hidden="true"></i>      
         <%= link_to truncate(trend.body, length: 40), "/posts/#{trend.id}" %>
+
         <br>
         Time Left: <%= distance_of_time_in_words(Time.now, trend.delete_at) %>
         <br>
         <br>
       <% else %>
+      <i class="fa fa-arrow-up trending-bar" aria-hidden="true"></i>
         <%= link_to truncate(trend.og_title, length: 40), "/posts/#{trend.id}" %>
         <br>
         Time Left: <%= distance_of_time_in_words(Time.now, trend.delete_at) %>

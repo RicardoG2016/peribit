@@ -9,7 +9,7 @@
     <h4> <%= @user.username %> </h4>
     <% if @user == current_user %>
       <span class="profile-links-list">
-      	<%= link_to "Edit Profile", edit_registration_path(@user) %>
+      	<i class="fa fa-pencil social-bar" aria-hidden="true"></i><%= link_to "Edit Profile", edit_registration_path(@user) %>
       </span>
     <% else %>
       <% if !current_user.follows?(@user) %>

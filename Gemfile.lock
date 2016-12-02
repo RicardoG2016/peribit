@@ -110,6 +110,8 @@ GEM
     faraday (0.10.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.14)
+    font-awesome-sass (4.5.0)
+      sass (>= 3.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashie (3.4.6)
@@ -250,6 +252,7 @@ DEPENDENCIES
   clockwork
   coffee-rails (~> 4.2)
   devise
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-countdown-rails
   jquery-rails
