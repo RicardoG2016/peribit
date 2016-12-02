@@ -33,7 +33,6 @@ form.navbar-form.navbar-right.form-inline {
 	form.navbar-form.navbar-right.form-inline {
 		padding-top: 25px;	
 	}
-	
 }
 
 body {
@@ -352,7 +351,7 @@ div.post-links > a {
 .user-info-table {
 	width: 260px;
 	margin-top: 17px;
-	margin-left: -8px;
+	margin-left: -28px;
 }
 
 .user-info-label > td {
@@ -453,7 +452,12 @@ span.profile-links-list {
 
 #index-profile {
 	width: 100%;
+	min-width: 295px;
 	word-wrap: break-word;
+}
+
+.trending {
+	min-width: 295px;
 }
 
 .new-post-form > input {
