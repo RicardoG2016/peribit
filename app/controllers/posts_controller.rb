@@ -102,6 +102,11 @@ class PostsController < ApplicationController
       end
       @post.save
       @like = @post.likers(User).count.to_s
+      if @like == '1'
+        @like = "#{@like} Like"
+      else
+        @like = "#{@like} Likes"
+      end
       render json: { like: @like }
     else
       if !current_user.likes?(@post) 

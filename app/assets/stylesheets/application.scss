@@ -90,10 +90,11 @@ div.post-links > a {
 	font-size: 14px;
 	letter-spacing: 1px;
 	text-decoration: none;
+	color: #336633;
 }
 
 .fa-trash, .trending-bar, .fa-pencil {
-	color: #337ab7;
+	color: #336633;
 }
 
 .reply_count, .like_count {
@@ -216,12 +217,12 @@ div.post-links > a {
 }
 
 .navbar {
-	background: #71ea62;
+	background: #71ba62;
 	height: 60px;
 }
 
 .navbar-default .navbar-nav > li > a {
-	background: #71ea62;
+	background: #71ba62;
 	color: white;
 	height: 59px;
 	letter-spacing: 1px;
@@ -294,18 +295,20 @@ div.post-links > a {
 }
 
 .btn {
-	background: #606060;
+	background: #336633;
+	text-shadow: 1px 1px #444740;
 	color: #FFF;
 }
 
 .btn-default {
-	border: none;
+	border: 1px solid #d1d8c9;
 }
 
 .btn:hover {
 	text-shadow: 1px 2px #1e1e1e;
+	border: 1px solid #d1d8c9;
 	color: #FFF;
-	background: #0496FF;
+	background: #3A753A;
 	text-shadow: 1px 1px #333;
 }
 
@@ -337,7 +340,7 @@ div.post-links > a {
 .user-info-table {
 	width: 260px;
 	margin-top: 17px;
-	margin-left: -35px;
+	margin-left: -8px;
 }
 
 .user-info-label > td {
@@ -516,4 +519,13 @@ p.remaining-time-count.is-countdown, .new-remaining-time-count {
 .trending {
 	float: left;
 	padding-left: -50px;
+}
+
+.fa-pencil {
+	margin-left: 5px;
+}
+
+
+a.like, a, a:hover {
+	color: #336633;
 }
