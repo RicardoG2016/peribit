@@ -31,9 +31,9 @@
                 <li><a href="/users/sign_in">Log In</a></li>
                 <li><a href="/users/sign_up">Sign Up</a></li>
               <% else %>
-          <li><a href="/users/<%= current_user.id %>">Profile</a></li>
+                <li><a href="/users/<%= current_user.id %>">Profile</a></li>
+                <li><a href="/users/browse">Browse</a></li>
                 <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-              <li><a href="/users/browse">Browse</a></li>
               <% end %>
             </ul>
             <ul class="nav navbar-nav navbar-right" style="margin-top: 0; padding-top: 0; margin-bottom: 0; padding-bottom: 0;">

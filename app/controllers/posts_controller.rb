@@ -19,6 +19,16 @@ class PostsController < ApplicationController
     end 
   end
 
+  def browse
+      @trending = Post.trending
+      @posts = []
+      Post.all.order("id DESC").each do |post|
+        if !current_user.follows?(post.user) && post.user != current_user
+          @posts << post 
+        end
+      end
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
