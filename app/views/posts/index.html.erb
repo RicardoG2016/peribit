@@ -60,6 +60,14 @@
 </div>
 
 <div class="col-md-8 post-container">
+    <div class="avatar pull-left">
+      <%= image_tag current_user.avatar.url(:thumb), class: "img-circle" %>
+    </div>
+    <div class="post-info col-md-8">
+      <h3><%= link_to current_user.username, "/users/#{current_user.id}" %></h3>
+      <%= render 'form', post: @post %>
+    </div>
+
 <% if @posts.length > 0 %>
    <% @posts.each do |post| %>
     <%= render "post", post: post %>

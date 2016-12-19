@@ -10,6 +10,8 @@ class PostsController < ApplicationController
       redirect_to '/users/sign_up'
     else
       @trending = Post.trending
+      @post = Post.new
+      @post.user = current_user
       @posts = []
       Post.all.order("id DESC").each do |post|
         if current_user.follows?(post.user) || post.user == current_user
