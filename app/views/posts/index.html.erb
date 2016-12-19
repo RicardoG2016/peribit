@@ -60,20 +60,13 @@
 </div>
 
 
+<!-- Below the code allows users to add a new post without having to click the new post button. -->
+<div class="col-md-8 post-container">
+<div class="row">
+  <%= render 'narrowform', post: @post %>     
 
 
-<div class="container-fluid col-md-8 post-container index-post-div">
-  <div class="jumbotron post">
-      <div class="avatar pull-left">
-        <%= image_tag current_user.avatar.url(:thumb), class: "img-circle" %>
-      </div>
-      <div class="post-info">
-        <h3><%= link_to current_user.username, "/users/#{current_user.id}" %></h3>
-      </div>
-      <div class="row">
-        <%= render 'form', post: @post %>     
-      </div>
-  </div>
+<!-- Below are the posts that make up the newsfeeds -->
 
   <% if @posts.length > 0 %>
    <% @posts.each do |post| %>
