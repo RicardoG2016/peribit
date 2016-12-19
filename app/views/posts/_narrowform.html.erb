@@ -1,39 +1,39 @@
 
-  <div class="container-fluid jumbotron post index-post-div narrow-form">
-    <div class="row">
-      <div class="avatar pull-left">
+<div class="container-fluid jumbotron post index-post-div narrow-form">
+  <div class="row">
+    <div class="avatar pull-left">
         <%= image_tag current_user.avatar.url(:thumb), class: "img-circle" %>
-      </div>
-
-      <div class="col-md-8 post-info">
-        <h3><%= link_to current_user.username, "/users/#{current_user.id}" %></h3>
-
-<%= form_for post, class: "new-post-form", html: { multipart: true } do |f| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
     </div>
-  <% end %>
 
-  <div class="field post-field">
-    <%= f.text_area :body, placeholder: " What are you up to?" %>
+    <div class="col-md-8 post-info">
+      <h3><%= link_to current_user.username, "/users/#{current_user.id}" %></h3>
+
+      <%= form_for post, class: "container-fluid jumbotron new-post-form", html: { multipart: true } do |f| %>
+        <% if post.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+            <ul>
+            <% post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field narrow-post-field">
+          <%= f.text_area :body, placeholder: " What are you up to?" %>
+        </div>
+
+        <div class="field narrow-post-field">
+          <%= f.file_field :image %>
+        </div>
+
+        <div class="actions narrow-post-submit">
+          <%= f.submit("Post", class: "narrow-btn btn") %>
+        </div>
+      <% end %>
+
+    </div>
   </div>
-
-  <div class="field post-field">
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="actions post-submit">
-    <%= f.submit("Post", class: "btn") %>
-  </div>
-<% end %>
-
-</div>
-</div>
 </div>
