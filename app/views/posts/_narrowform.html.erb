@@ -1,12 +1,12 @@
 
 <div class="container-fluid jumbotron post index-post-div narrow-form">
   <div class="row">
-    <div class="avatar pull-left">
+    <div class="avatar pull-left narrow-avatar">
         <%= image_tag current_user.avatar.url(:thumb), class: "img-circle" %>
     </div>
 
     <div class="col-md-8 post-info">
-      <h3><%= link_to current_user.username, "/users/#{current_user.id}" %></h3>
+      
 
       <%= form_for post, class: "container-fluid jumbotron new-post-form", html: { multipart: true } do |f| %>
         <% if post.errors.any? %>

@@ -16,6 +16,8 @@ end
   def show
   	redirect_to('/users/sign_in') and return if !current_user
     @user = User.find(params[:id])
+    @post = Post.new
+    @post.user = current_user
   end
 
   def destroy
