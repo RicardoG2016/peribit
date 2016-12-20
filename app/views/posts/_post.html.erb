@@ -1,7 +1,7 @@
 <div class="container-fluid jumbotron post index-post-div" data-id="<%= post.id %>">
 	<div class="row">
 		<div class="avatar pull-left">
-			<%= image_tag post.user.avatar.url(:thumb), class: "img-circle" %>
+			<%= image_tag post.user.avatar.url(:thumb), class: "img-rounded" %>
 		</div>
 		<div class="post-info col-md-8">
 			<h3><%= link_to post.user.username, "/users/#{post.user.id}" %></h3>
