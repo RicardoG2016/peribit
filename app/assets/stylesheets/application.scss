@@ -558,9 +558,11 @@ a.like, a, a:hover {
 
 .narrow-form {
 	background-color: #eaf5e9;
-	border: solid #336633 1px;
+	border: solid #336633 2px;
+	border-radius: 5px !important;
 	height: 170px;
 	padding: 1px;
+	margin-bottom: 10px;
 }
 
 div.field.narrow-post-field {
@@ -570,9 +572,17 @@ div.field.narrow-post-field {
 
 div.actions.narrow-post-submit {
 	padding-left: 65%;
-	padding-top: -80px;
+	
 }
 
 textarea {
 	width: 450px;
 }
+
+.narrow-btn.btn {
+	margin-top: -75px;
+	width: 95px;
+	margin-left:20px;
+	
+}
+
