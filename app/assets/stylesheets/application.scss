@@ -494,6 +494,18 @@ p.remaining-time-count.is-countdown, .new-remaining-time-count {
 	max-width: 550px;
 }
 
+@media screen and (max-width: 1199px) {
+
+	div.field.narrow-post-field > textarea#post_body {
+		width: 410px;
+	}
+
+	input.narrow-btn.btn {
+		margin-left: -120px; 
+	}
+
+}
+
 @media screen and (max-width: 991px) {
 	div.post-container {
 		margin-top: 20px;
