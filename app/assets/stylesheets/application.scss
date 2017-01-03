@@ -536,6 +536,18 @@ p.remaining-time-count.is-countdown, .new-remaining-time-count {
 		float: none !important;
 	}
 
+div.field.narrow-post-field > textarea#post_body {
+		width: 485.89px;
+	}
+
+	input.narrow-btn.btn {
+		margin-left: -45px; 
+	}
+
+		div.col-md-4 {
+		padding-right: 0px;
+	}
+
 }
 
 @media screen and (max-width: 767px) {
@@ -558,6 +570,25 @@ p.remaining-time-count.is-countdown, .new-remaining-time-count {
 		margin-left: 7px;
 	}
 
+	div.col-md-4 {
+		padding-right: 0px;
+	}
+
+	textarea#post_body {
+		margin-top: 20px;
+	}
+
+}
+
+@media screen and (max-width: 562px) {
+	div.field.narrow-post-field > textarea#post_body {
+		width: 350px;
+	}
+
+	input.narrow-btn.btn {
+		margin-left: -180px;
+	}
+
 }
 
 .trending {
@@ -578,7 +609,7 @@ a.like, a, a:hover {
 	background-color: #eaf5e9;
 	border: solid #336633 1.5px;
 	border-radius: 5px !important;
-	height: 200px;
+	height: 100%;
 	padding-top: 36px;
 	margin-bottom: 10px;
 }
