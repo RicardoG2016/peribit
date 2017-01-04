@@ -1,15 +1,14 @@
 <!-- The green post section shown on user and home pages is created by code below. -->
 
-<div class="container-fluid jumbotron post index-post-div narrow-form">
-  <div class="row">
-    <div class="avatar pull-left narrow-avatar">
+<div class="container-fluid jumbotron post index-post-div narrow-form short-cut">
+  <div class="row short-cut">
+    <div class="avatar pull-left narrow-avatar short-cut">
         <%= image_tag current_user.avatar.url(:thumb), class: "img-rounded" %>
     </div>
 
-    <div class="col-md-8 post-info">
-      
+    <div class="col-md-8 post-info short-cut">
 
-      <%= form_for post, class: "container-fluid jumbotron new-post-form", html: { multipart: true } do |f| %>
+      <%= form_for post, class: "short-cut container-fluid jumbotron new-post-form", html: { multipart: true } do |f| %>
         <% if post.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
