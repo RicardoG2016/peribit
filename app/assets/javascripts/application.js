@@ -34,7 +34,7 @@ $(document).ready(function() {
 	
 var postClick = function() {
 	$("body").on("click", ".index-post-div", function(e) {
-    if ( $(e.target).is('a') == false && $(e.target).is('form').hasClass("short-cut") == false) {
+    if ( $(e.target).is('a') == false && $(e.target).is('textarea') == false && $(e.target).hasClass("short-cut") == false ) {
       var u = "/posts/" + $(this).data('id');
       window.location = u;  
     };
