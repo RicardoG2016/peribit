@@ -6,4 +6,14 @@ Peribit is a new social communication platform that allows users to communicate 
 
 By adding a timer on posts peribit ensures that users see the best content at all times. This prevents peribit from being flooded with old content like Facebook and Twitter and maximizes user engagement more than Snapchat by allowing users to engagement with content by liking, commenting or reposting. With our model the best posts will remain active and trend upward while bad content will delete due to lack of user engadgement.
 
+### Download instructions
+- fork repo
+- `git clone [forked_repo_name]`
+- `cd [to project file]`
+- `bundle`
+- `rails s`
+- go to localhost:3000 in browser
+
+#### View gemfile for specific version.
+
 ![alt text](https://user-images.githubusercontent.com/20272116/28982718-777036f4-791c-11e7-9802-1f171565f452.png)
